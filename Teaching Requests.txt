@@ -1,0 +1,67 @@
+Teaching Requirement:
+
+Course System and Network
+1. One teaching staff (Dr.)
+2. Time: Mon from 9 - 11, semester 1 (23/09/2019 - 07/12/2019)
+3. Location: St Andrews Building
+
+Course Programing
+1. One teaching staff (Dr.)
+2. Time: Tue from 10 - 12, semester 1 (23/09/2019 - 07/12/2019)
+3. Location: Adam Smith Building
+
+Course Advanced Programing
+1. One teaching staff (Pro.)
+2. Time: Wed from 11 - 13, semester 2 (13/01/2020 - 20/04/2020)
+3. Location: Gregory Building
+
+Course Internet Technology
+1. One teaching staff (Pro.)
+2. Time: Thu from 12 - 13, semester 2 (13/01/2020 - 20/04/2020)
+3. Location: James Watt Building
+
+Course Algorithms & Data Structures
+1. One teaching staff (Pro.)
+2. Time: Fri from 10 - 12, semester 2 (13/01/2020 - 20/04/2020)
+3. Location: Gregory Building
+
+Course Cyber Security Fundamentals
+1. One teaching staff (Pro.)
+2. Time: Fri from 11 - 13, semester 2 (13/01/2020 - 20/04/2020)
+3. Location: Gregory Building
+
+-------------------------------------------------------------------
+
+Teachers List:
+
+Lecturer Pro A
+Main: Algorithms & Data Structures/ Programing
+
+Lecturer Pro B
+Main: Internet Technology/ System & Network
+
+Lecturer Pro C
+Main: Advanced Programing/ Cyber Security Fundamentals
+
+Lecturer Pro D
+Main: Advanced Programing/ Programing
+
+Lecturer Dr E
+Main: System & Network
+
+Lecturer Dr F
+Main: Programing
+
+Lecturer Dr G
+Main: Cyber Security Fundamentals
+
+Lecturer Dr H
+Main: Internet Technology
+
+Lecturer Dr J
+Main: Algorithms & Data Structures
+
+Lecturer Dr K
+Main: Advanced Programing
+
+Course ACourse AAAAAaaaaaaaaaaaaaaaaAAAAaAAAAAaaaaaaa
