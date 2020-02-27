@@ -7,10 +7,10 @@ public class View_UserSelection {
 		
 		Scanner scanner = new Scanner(System.in);
 		int userChoice = scanner.nextInt();
-		// change to nextline
+											// change to nextline
 		scanner.nextLine();
-		scanner.close();
-		//Controller.actionControl(e);
+											//Controller.actionControl(e);
+//		scanner.close();
 		return userChoice;
 }
 

@@ -12,16 +12,18 @@ import java.util.Scanner;
 public class Model_PTTDirector {
 	Model_Administrator ma;
 	private static ArrayList<String> requests;
+	String filePath;
 
 	
-	public Model_PTTDirector() {
+	public Model_PTTDirector(String filePath) {
 		ma = new Model_Administrator();
 		requests = new ArrayList<String>();
+		this.filePath = filePath;
 	}
 	
-	public void readTeachingRequests() {
+	public void readTeachingRequests(Model_Administrator ma) {
 		try {
-			FileReader fr = new FileReader("/Users/guodongyang/eclipse-workspace/SE_AssessedExercise/Teaching Requests.txt");
+			FileReader fr = new FileReader(filePath);
 			BufferedReader br = new BufferedReader(fr);
 			
 			String readData;

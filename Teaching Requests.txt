@@ -1,67 +1,26 @@
-Teaching Requirement:
+CourseID	Course Name	                 Needs	Course Time	   Course Location
+      01	System Network	                 Dr.	9-11(Mon)	   St Andrews Building
+      02	Programing	                 Dr.	10-12(Tue)	   Adam Smith Building
+      03	Advanced Programing	         Pro.	11-13(Wed)	   Gregory Building
+      04	Internet Technology	         Pro.	12-13(Thu)	   James Watt Building
+      05	Algorithms and Data Structures	 Pro.	10-12(Fri)	   Gregory Building
+      06	Cyber Security Fundamentals	 Pro.	11-13(Fri)	   St Andrews Building
 
-Course System and Network
-1. One teaching staff (Dr.)
-2. Time: Mon from 9 - 11, semester 1 (23/09/2019 - 07/12/2019)
-3. Location: St Andrews Building
 
-Course Programing
-1. One teaching staff (Dr.)
-2. Time: Tue from 10 - 12, semester 1 (23/09/2019 - 07/12/2019)
-3. Location: Adam Smith Building
 
-Course Advanced Programing
-1. One teaching staff (Pro.)
-2. Time: Wed from 11 - 13, semester 2 (13/01/2020 - 20/04/2020)
-3. Location: Gregory Building
 
-Course Internet Technology
-1. One teaching staff (Pro.)
-2. Time: Thu from 12 - 13, semester 2 (13/01/2020 - 20/04/2020)
-3. Location: James Watt Building
 
-Course Algorithms & Data Structures
-1. One teaching staff (Pro.)
-2. Time: Fri from 10 - 12, semester 2 (13/01/2020 - 20/04/2020)
-3. Location: Gregory Building
 
-Course Cyber Security Fundamentals
-1. One teaching staff (Pro.)
-2. Time: Fri from 11 - 13, semester 2 (13/01/2020 - 20/04/2020)
-3. Location: Gregory Building
 
--------------------------------------------------------------------
 
-Teachers List:
-
-Lecturer Pro A
-Main: Algorithms & Data Structures/ Programing
-
-Lecturer Pro B
-Main: Internet Technology/ System & Network
-
-Lecturer Pro C
-Main: Advanced Programing/ Cyber Security Fundamentals
-
-Lecturer Pro D
-Main: Advanced Programing/ Programing
-
-Lecturer Dr E
-Main: System & Network
-
-Lecturer Dr F
-Main: Programing
-
-Lecturer Dr G
-Main: Cyber Security Fundamentals
-
-Lecturer Dr H
-Main: Internet Technology
-
-Lecturer Dr J
-Main: Algorithms & Data Structures
-
-Lecturer Dr K
-Main: Advanced Programing
-
-Course ACourse AAAAAaaaaaaaaaaaaaaaaAAAAaAAAAAaaaaaaa
+LecturerID	    LecturerName	    Degree	    MainCourse	    OtherCourse
+	01	Ali	Pro.	Algorithms & Data Structures	    Programing
+	02	Ben	Pro.	Internet Technology	    System & Network
+	03	Ann	Pro.	Advanced Programing	    Cyber Security Fundamentals
+    04	Lan	Pro.	Advanced Programing	    Programing
+    05	Jay	Dr.	System & Network	/
+    06	Joe	Dr.	Programing	/
+    07	Jon	Dr.	Cyber Security Fundamentals	/
+    08	Amy	Dr.	Internet Technology	sd
+    09	Kay	Dr.	Algorithms & Data Structures	/
+    10	Mia	Dr.	Advanced Programing	/

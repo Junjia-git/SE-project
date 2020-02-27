@@ -15,7 +15,7 @@ public class View_CommandLineTest {
 	
 	@Test
 	public void test() {
-		view.userChoice();
+		view.userLogIn();
 	}
 
 }
