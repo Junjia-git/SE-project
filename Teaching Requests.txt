@@ -1,18 +1,3 @@
-CourseID	Course Name	                 Needs	Course Time	   Course Location
-      01	System Network	                 Dr.	9-11(Mon)	   St Andrews Building
-      02	Programing	                 Dr.	10-12(Tue)	   Adam Smith Building
-      03	Advanced Programing	         Pro.	11-13(Wed)	   Gregory Building
-      04	Internet Technology	         Pro.	12-13(Thu)	   James Watt Building
-      05	Algorithms and Data Structures	 Pro.	10-12(Fri)	   Gregory Building
-      06	Cyber Security Fundamentals	 Pro.	11-13(Fri)	   St Andrews Building
-
-
-
-
-
-
-
-
 LecturerID	    LecturerName	    Degree	    MainCourse	    OtherCourse
 	01	Ali	Pro.	Algorithms & Data Structures	    Programing
 	02	Ben	Pro.	Internet Technology	    System & Network
@@ -24,3 +9,18 @@ LecturerID	    LecturerName	    Degree	    MainCourse	    OtherCourse
     08	Amy	Dr.	Internet Technology	sd
     09	Kay	Dr.	Algorithms & Data Structures	/
     10	Mia	Dr.	Advanced Programing	/
+
+
+
+
+
+
+
+CourseID	Course Name	                 Needs	Course Time	   Course Location
+      01	System Network	                 Dr.	9-11(Mon)	   St Andrews Building
+      02	Programing	                 Dr.	10-12(Tue)	   Adam Smith Building
+      03	Advanced Programing	         Pro.	11-13(Wed)	   Gregory Building
+      04	Internet Technology	         Pro.	12-13(Thu)	   James Watt Building
+      05	Algorithms and Data Structures	 Pro.	10-12(Fri)	   Gregory Building
+      06	Cyber Security Fundamentals	 Pro.	11-13(Fri)	   St Andrews Building
+21	qwe	qwe	qwe	qwe

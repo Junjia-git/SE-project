@@ -1,6 +1,7 @@
 package PTT;
 
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -134,11 +136,11 @@ public class Model_ClassDirector {
 				
 				String infoData = null;
 				while ((infoData = lineReader.readLine()) != null) {
-					coursesInfo += infoData;
-					coursesInfo += "\n";
-					if (lineReader.getLineNumber() == 15) {
-						break;
+					if (lineReader.getLineNumber() >=19) {
+						coursesInfo += infoData;
+						coursesInfo += "\n";
 					}
+					
 				}
 
 				lineReader.close();
@@ -193,13 +195,13 @@ public class Model_ClassDirector {
 			
 			String infoData = null;
 			while ((infoData = lineReader.readLine()) != null) {
-				if (lineReader.getLineNumber() >=16) {
 					teacherList += infoData;
 					teacherList += "\n";
+					if (lineReader.getLineNumber() == 18) {
+						break;
+					}
 //					System.out.println(lineReader.getLineNumber());
 //					System.out.println(teacherList);
-				}
-				
 			}
 			lineReader.close();
 			if (src.exists()) {
@@ -251,7 +253,7 @@ public class Model_ClassDirector {
 	}
 	
 	
-	public void addCourseInfo() throws IOException{
+	public void addCourseInfo(Model_TeachingRequirement course) throws IOException{
 		boolean falg = false;
 		String id = "";
 		while(true) {
@@ -293,21 +295,20 @@ public class Model_ClassDirector {
 		String time = sc3.nextLine();
 //		sc4.close();
 		
-		Model_TeachingRequirement ci = new Model_TeachingRequirement();
-		ci.setCouseID(id);
-		ci.setCourseName(name);
-		ci.setCourseTeacherReq(teacherreq);
-		ci.setCoursetime(time);
-		ci.setCourseLocation(location);
+		course.setCouseID(id);
+		course.setCourseName(name);
+		course.setCourseTeacherReq(teacherreq);
+		course.setCoursetime(time);
+		course.setCourseLocation(location);
 		
-		initalList.add(ci);
-		classTeachingRequirements.add(ci);
-		saveCoursesInfoTofile();
+		initalList.add(course);
+		classTeachingRequirements.add(course);
+		saveCoursesInfoTofile(course);
 		System.out.println("Add Successful!");
 		
 	}
 	
-	public void deleteCourse() throws IOException {
+	public void deleteCourse(Model_TeachingRequirement course) throws IOException {
 		System.out.println("Please enter the Course ID you want to delete:");
 		Scanner sc = new Scanner(System.in);
 		String id = sc.nextLine();
@@ -321,7 +322,7 @@ public class Model_ClassDirector {
 				break;
 			}
 		}
-		saveCoursesInfoTofile();
+		saveCoursesInfoTofile(course);
 		if (hasDelete)
 			System.out.println("Course deleted!");
 		else 
@@ -329,7 +330,7 @@ public class Model_ClassDirector {
 	}
 	
 	
-	public void updateCourse() throws IOException {
+	public void updateCourse(Model_TeachingRequirement course) throws IOException {
 		System.out.println("Please enter the course ID which need update:");
 		Scanner sc = new Scanner(System.in);
 		String id = sc.nextLine();
@@ -345,7 +346,6 @@ public class Model_ClassDirector {
 			System.out.println("Coures not found!");
 		}
 		else {
-			Model_TeachingRequirement ci = classTeachingRequirements.get(index);
 			
 			System.out.println("Please enter course Name");
 			Scanner sc1 = new Scanner(System.in);
@@ -367,20 +367,23 @@ public class Model_ClassDirector {
 			String time = sc3.nextLine();
 //			sc4.close();
 			
-			ci.setCouseID(id);
-			ci.setCourseName(name);
-			ci.setCourseTeacherReq(teacherreq);
-			ci.setCoursetime(time);
-			ci.setCourseLocation(location);
+			course.setCouseID(id);
+			course.setCourseName(name);
+			course.setCourseTeacherReq(teacherreq);
+			course.setCoursetime(time);
+			course.setCourseLocation(location);
 			System.out.println("Updated successful");
 		}
-		saveCoursesInfoTofile();
+		saveCoursesInfoTofile(course);
 	}
 	
 	
-	public void saveCoursesInfoTofile() throws IOException {
-		BufferedWriter bw = null;
+	public void saveCoursesInfoTofile(Model_TeachingRequirement course) throws IOException {
+		
+		BufferedWriter writer = null;
+
 		File file = new File(filePath);
+
 		if (!file.exists()) {
 			try {
 				file.createNewFile();
@@ -389,24 +392,34 @@ public class Model_ClassDirector {
 			}
 		}
 		try {
-			bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false), "UTF-8"));
+
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF-8"));
 			StringBuilder data = new StringBuilder();
-			for (int i = 0; i<classTeachingRequirements.size(); i++) {
-				data.append(classTeachingRequirements.get(i).getCouseID());
-				data.append("\t" + classTeachingRequirements.get(i).getCourseName());
-				data.append("\t" + classTeachingRequirements.get(i).getCourseTeacherReq());
-				data.append("\t" + classTeachingRequirements.get(i).getCoursetime());
-				data.append("\t" + classTeachingRequirements.get(i).getCourseLocation());
-				data.append("\n");
-			}
+			data.append(course.getCouseID());
+			data.append("\t" + course.getCourseName());
+			data.append("\t" + course.getCourseTeacherReq());
+			data.append("\t" + course.getCoursetime());
+			data.append("\t" + course.getCourseLocation());
+			data.append("\n");
+			
+//			for (int i = 0; i<classTeachingRequirements.size(); i++) {
+//				data.append(classTeachingRequirements.get(i).getCouseID());
+//				data.append("\t" + classTeachingRequirements.get(i).getCourseName());
+//				data.append("\t" + classTeachingRequirements.get(i).getCourseTeacherReq());
+//				data.append("\t" + classTeachingRequirements.get(i).getCoursetime());
+//				data.append("\t" + classTeachingRequirements.get(i).getCourseLocation());
+//				data.append("\n");
+//			}
 			System.out.println(data);
-			bw.write(data.toString());
+
+			writer.write(data.toString());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (bw != null) {
-					bw.close();
+				if (writer != null) {
+					writer.close();
 				}
 			} catch(IOException e) {
 				e.printStackTrace();

@@ -10,6 +10,8 @@ import PTT.Model_Administrator;
 import PTT.Model_ClassDirector;
 import PTT.Model_PTTDirector;
 import PTT.Model_Teacher;
+import PTT.Model_TeacherList;
+import PTT.Model_TeachingRequirement;
 import PTT.View_CommandLine;
 import PTT.View_UserSelection;
 
@@ -21,6 +23,8 @@ public class ClassDirectorTest {
 	View_CommandLine vc;
 	View_UserSelection vu;
 	Controller c;
+	Model_TeacherList mtl;
+	Model_TeachingRequirement mtr;
 	String filePath = "/Users/guodongyang/eclipse-workspace/SE_AssessedExercise/Teaching Requests.txt";
 	
 	public ClassDirectorTest() {
@@ -29,7 +33,9 @@ public class ClassDirectorTest {
 		ma = new Model_Administrator();
 		mp = new Model_PTTDirector(filePath);
 		vc = new View_CommandLine();
-		c = new Controller(mc, mt, ma, mp, vc);
+		mtl = new Model_TeacherList();
+		mtr = new Model_TeachingRequirement();
+		c = new Controller(mc, mt, ma, mp, vc, mtl, mtr);
 	}
 	
 	@Test
