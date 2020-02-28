@@ -2,18 +2,27 @@ package PTT;
 
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.CharArrayWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.RandomAccessFile;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.crypto.Cipher;
 
 import org.junit.runner.manipulation.Sortable;
 
@@ -22,6 +31,10 @@ public class Model_ClassDirector {
 	private ArrayList<Model_TeachingRequirement> classTeachingRequirements;
 	private ArrayList<Model_TeachingRequirement> initalList;
 	private ArrayList<Model_TeacherList> teacherInitalList;
+	private int courseCounter = 0;
+	private boolean added = false;
+	private boolean removed = false;
+	private int removeID = 0;
 //	private ArrayList<String> addList;
 //	private ArrayList<String> removeList;
 //	private int addCounter;
@@ -106,6 +119,14 @@ public class Model_ClassDirector {
 //	}
 
 	
+	public int getCourseCounter() {
+		return courseCounter;
+	}
+
+	public void setCourseCounter(int courseCounter) {
+		this.courseCounter = courseCounter;
+	}
+
 	public ArrayList<Model_TeacherList> getTeacherInitalList() {
 		return teacherInitalList;
 	}
@@ -161,8 +182,10 @@ public class Model_ClassDirector {
 						mtr.setCourseLocation(stuArr[4]);
 						initalList.add(mtr);
 						classTeachingRequirements.add(mtr);
+						courseCounter++;
 					}
 				}
+				
 			}
 				
 			}catch (IOException e) {
@@ -247,13 +270,13 @@ public class Model_ClassDirector {
 //		System.out.println("Course ID\tCourse Name\tCourse TeacherRequ \tCourse Time \tCourse Location");
 		for (int i=0; i<classTeachingRequirements.size(); i++) {
 			Model_TeachingRequirement s = classTeachingRequirements.get(i);
-			System.out.println("    " + s.getCouseID() + "\t         " + s.getCourseName() + "\t         " 
-			+ s.getCourseTeacherReq() + "\t         " + s.getCoursetime() + "\t         " + s.getCourseLocation());
+			System.out.println(s.getCouseID() + "    " + s.getCourseName() + "     " 
+			+ s.getCourseTeacherReq() + "    " + s.getCoursetime() + "    " + s.getCourseLocation());
 		}
 	}
 	
 	
-	public void addCourseInfo(Model_TeachingRequirement course) throws IOException{
+	public void addCourseInfo() throws IOException{
 		boolean falg = false;
 		String id = "";
 		while(true) {
@@ -264,7 +287,6 @@ public class Model_ClassDirector {
 			for (int i=0; i<classTeachingRequirements.size(); i++) {
 				Model_TeachingRequirement s = classTeachingRequirements.get(i);
 				if (s.getCouseID().equals(id)) {
-					System.out.println();
 					falg = true;
 				}
 			}
@@ -294,7 +316,7 @@ public class Model_ClassDirector {
 		Scanner sc4 = new Scanner(System.in);
 		String time = sc3.nextLine();
 //		sc4.close();
-		
+		Model_TeachingRequirement course = new Model_TeachingRequirement();
 		course.setCouseID(id);
 		course.setCourseName(name);
 		course.setCourseTeacherReq(teacherreq);
@@ -303,12 +325,17 @@ public class Model_ClassDirector {
 		
 		initalList.add(course);
 		classTeachingRequirements.add(course);
-		saveCoursesInfoTofile(course);
+		
+		added = true;
+		courseCounter++;
+//		System.out.println(courseCounter);
+		
+		saveCoursesInfoTofile();
 		System.out.println("Add Successful!");
 		
 	}
 	
-	public void deleteCourse(Model_TeachingRequirement course) throws IOException {
+	public void deleteCourse() throws IOException {
 		System.out.println("Please enter the Course ID you want to delete:");
 		Scanner sc = new Scanner(System.in);
 		String id = sc.nextLine();
@@ -317,20 +344,94 @@ public class Model_ClassDirector {
 		for (int i=0; i<classTeachingRequirements.size(); i++) {
 			Model_TeachingRequirement ci = classTeachingRequirements.get(i);
 			if (ci.getCouseID().equals(id)) {
+//				delToFile();
+				removed = true;
+				courseCounter--;
+				removeID = i;
+				saveCoursesInfoTofile();
 				classTeachingRequirements.remove(i);
 				hasDelete = true;
 				break;
 			}
 		}
-		saveCoursesInfoTofile(course);
+		
+		
 		if (hasDelete)
-			System.out.println("Course deleted!");
+			System.out.println("\n" + "Course deleted!");
 		else 
 			System.out.println("Course not found!");
 	}
+					
+
+//	public void delToFile() {
+		
+		
+
+//		File src = new File(filePath);
+//		String removeString = classTeachingRequirements.get(removeID).getCouseID();
+////		System.out.println(removeString);
+//		
+//		Model_TeachingRequirement s = classTeachingRequirements.get(removeID);
+//		String oldChar = s.getCouseID() + "    " + s.getCourseName() + "     " 
+//						+ s.getCourseTeacherReq() + "    " + s.getCoursetime() + "    " + s.getCourseLocation();
+//		String newChar = "";
+//		
+//		if (removed) {
+//			try {
+//				if (src.exists()) {
+//					FileInputStream fileInputStream = new FileInputStream(src);
+//					InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+//					LineNumberReader lineReader = new LineNumberReader(inputStreamReader);
+////					BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePath, true), "UTF-8"));
+//					PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filePath, true)));
+//					
+//					String infoData = null;
+//					while ((infoData = lineReader.readLine()) != null) {
+//						if (lineReader.getLineNumber() >=19) {
+//							if (infoData.contains(removeString)) {
+////								StringBuffer buf = new StringBuffer();
+//								writer.println(infoData.replace(oldChar, newChar));
+////								System.out.println(infoData);
+//							}
+//						}
+//						}
+//					writer.close();
+//					lineReader.close();
+//				}
+//			}catch(Exception e)
+//			{
+//				e.printStackTrace();
+//			}	
+//		}else {
+//			System.err.println("No data deleted!");
+//		}
+//		
+//	}
+			
+		
+//		saveCoursesInfoTofile();
+//		try {
+//         RandomAccessFile raf = new RandomAccessFile(filePath, "rw");
+//            String line;
+//            while (null!=(line=raf.readLine())) {
+//            
+//                if(line.contains(classTeachingRequirements.get(removeID).getCouseID())){
+//                    String[] split = line.split(classTeachingRequirements.get(removeID).getCouseID());
+//                    raf.seek(split[0].length());
+//                    raf.writeBytes("");
+//                    raf.writeBytes(split[1]);
+//                }
+////                System.out.println(line);
+//                line = "";
+//            }
+//           raf.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+		
 	
 	
-	public void updateCourse(Model_TeachingRequirement course) throws IOException {
+	public void updateCourse() throws IOException {
 		System.out.println("Please enter the course ID which need update:");
 		Scanner sc = new Scanner(System.in);
 		String id = sc.nextLine();
@@ -367,6 +468,7 @@ public class Model_ClassDirector {
 			String time = sc3.nextLine();
 //			sc4.close();
 			
+			Model_TeachingRequirement course = new Model_TeachingRequirement();
 			course.setCouseID(id);
 			course.setCourseName(name);
 			course.setCourseTeacherReq(teacherreq);
@@ -374,15 +476,17 @@ public class Model_ClassDirector {
 			course.setCourseLocation(location);
 			System.out.println("Updated successful");
 		}
-		saveCoursesInfoTofile(course);
+		saveCoursesInfoTofile();
 	}
 	
 	
-	public void saveCoursesInfoTofile(Model_TeachingRequirement course) throws IOException {
+	public void saveCoursesInfoTofile() throws IOException {
 		
 		BufferedWriter writer = null;
 
 		File file = new File(filePath);
+		FileReader in = new FileReader(file);  
+        BufferedReader bufIn = new BufferedReader(in);  
 
 		if (!file.exists()) {
 			try {
@@ -391,16 +495,58 @@ public class Model_ClassDirector {
 				e.printStackTrace();
 			}
 		}
+		
+
 		try {
 
 			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF-8"));
 			StringBuilder data = new StringBuilder();
-			data.append(course.getCouseID());
-			data.append("\t" + course.getCourseName());
-			data.append("\t" + course.getCourseTeacherReq());
-			data.append("\t" + course.getCoursetime());
-			data.append("\t" + course.getCourseLocation());
-			data.append("\n");
+//			data.append(course.getCouseID());
+//			data.append("\t" + course.getCourseName());
+//			data.append("\t" + course.getCourseTeacherReq());
+//			data.append("\t" + course.getCoursetime());
+//			data.append("\t" + course.getCourseLocation());
+//			data.append("\n");
+			if (added) {
+			int c = courseCounter-1;
+			System.out.println(courseCounter);
+//				data.append("\n");
+				data.append("\r\n");
+				data.append(classTeachingRequirements.get(c).getCouseID());
+				data.append("\t" + classTeachingRequirements.get(c).getCourseName());
+				data.append("\t" + classTeachingRequirements.get(c).getCourseTeacherReq());
+				data.append("\t" + classTeachingRequirements.get(c).getCoursetime());
+				data.append("\t" + classTeachingRequirements.get(c).getCourseLocation());
+				added = false;
+				writer.write(data.toString());
+			}
+			
+			Model_TeachingRequirement s = classTeachingRequirements.get(removeID);
+			String oldChar = s.getCouseID() + "\t"  + s.getCourseName() + "\t" 
+					+ s.getCourseTeacherReq() + "\t" + s.getCoursetime() + "\t"  + s.getCourseLocation();
+			String newChar = "";
+			
+			if (removed) {
+				CharArrayWriter  tempStream = new CharArrayWriter();  
+		        // 替换  
+		        String line = null;  
+		        while ( (line = bufIn.readLine()) != null) {  
+		            // 替换每行中, 符合条件的字符串  
+		            line = line.replaceAll(oldChar, newChar);  
+		            // 将该行写入内存  
+		            tempStream.write(line);  
+		            // 添加换行符  
+		            tempStream.append(System.getProperty("line.separator"));  
+		        }  
+				
+		        bufIn.close();
+		        
+		        FileWriter out = new FileWriter(file);  
+		        tempStream.writeTo(out);  
+		        out.close(); 
+					removed = false;
+				}
+				
 			
 //			for (int i = 0; i<classTeachingRequirements.size(); i++) {
 //				data.append(classTeachingRequirements.get(i).getCouseID());
@@ -410,9 +556,7 @@ public class Model_ClassDirector {
 //				data.append("\t" + classTeachingRequirements.get(i).getCourseLocation());
 //				data.append("\n");
 //			}
-			System.out.println(data);
-
-			writer.write(data.toString());
+//			System.out.println(data);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -425,7 +569,8 @@ public class Model_ClassDirector {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("File saved!");
+	
+		System.out.println("\n" + "File saved!");
 	}
 	
 //	public void getTeachingRequirement(String filePath) {

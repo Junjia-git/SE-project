@@ -90,13 +90,13 @@ public class Controller {
 				mc.findAllCourses();
 				break;
 			case 2:
-				mc.addCourseInfo(mtr);
+				mc.addCourseInfo();
 				break;
 			case 3:
-				mc.deleteCourse(mtr);
+				mc.deleteCourse();
 				break;
 			case 4:
-				mc.updateCourse(mtr);
+				mc.updateCourse();
 				break;
 			case 5:
 				System.out.println("\n" + "Log out successfully!" + "\n" + "System is still running.");

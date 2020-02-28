@@ -7,7 +7,7 @@ public class PTTCMLApplication {
 	public static void main(String[] args) throws IOException{
 		String filePath = ("/Users/guodongyang/eclipse-workspace/SE_AssessedExercise/Teaching Requests.txt");
 		Model_ClassDirector mc = new Model_ClassDirector(filePath);
-		Model_Teacher mt = new Model_Teacher(mc);
+		Model_Teacher mt = new Model_Teacher(filePath);
 		Model_Administrator ma = new Model_Administrator();
 		Model_PTTDirector mp = new Model_PTTDirector(filePath);
 		Model_TeachingRequirement mtr = new Model_TeachingRequirement();
