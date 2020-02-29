@@ -1,31 +1,20 @@
-Lect	Amy	Dr.	Internet Technology	sdree	    MainCourse	    OtherCourse
-	01	Ali	Pro.	Algorithms & Data Structures	    Programing
-	02	Ben	Pro.	Internet Technology	    System & Network
-	03	Ann	Pro.	Advanced Programing	    Cyber Security Fundamentals
-    04	Lan	Pro.	Advanced Programing	    Programing
-    05	Jay	Dr.	System & Network	/
-    06	Joe	Dr.	Programing	/
-    07	Jon	Dr.	Cyber Security Fundamentals	/
-    08	Amy	Dr.	Internet Technology	sd
-    09	Kay	Dr.	Algorithms & Data Structures	/
-    10	Mia	Dr.	Advanced Programing	/
-
-
-
-
-
-
-
+LecturerID	LecturerName	Degree	MainCourse	OtherCourse
+01	Ali	Pro.	Algorithms & Data Structures	Programing
+02	Ben	Pro.	Internet Technology	System Network
+03	Ann	Pro.	Advanced Programing	Cyber Security Fundamentals
+04	Lan	Pro.	Advanced Programing	Programing
+05	Jay	Dr.	System Network	/
+06	Joe	Dr.	Programing	/
+07	Jon	Dr.	Cyber Security Fundamentals	/
+08	Amy	Dr.	Internet Technology	/
+09	Kay	Dr.	Algorithms & Data Structures	/
+10	Mia	Dr.	Advanced Programing	/
 CourseID	Course Name	                 Needs	Course Time	   Course Location
 01	System Network	                 Dr.	9-11(Mon)	   St Andrews Building
 02	Programing	                 Dr.	10-12(Tue)	   Adam Smith Building
 03	Advanced Programing	         Pro.	11-13(Wed)	   Gregory Building
 04	Internet Technology	         Pro.	12-13(Thu)	   James Watt Building
-05	Algorithms and Data Structures	 Pro.	10-12(Fri)	   Gregory Building
+05	Algorithms & Data Structures	 Pro.	10-12(Fri)	   Gregory Building
 06	Cyber Security Fundamentals	 Pro.	11-13(Fri)	   St Andrews Building
-07	weeeeee	1111111	weqweqw	wqeqweq
-08	sda	231	1111	111111
-09	qwe		qwe	qweqweq
-10	qwe	qweq	qwe	qwe
-
-
+07	Language	Dro.	9-11(Mon)	Adam Smith Building
+08	Skills for Study	Dro.	10-12(Tue)	Gregory Building

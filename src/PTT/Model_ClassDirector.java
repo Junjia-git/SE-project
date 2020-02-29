@@ -157,7 +157,7 @@ public class Model_ClassDirector {
 				
 				String infoData = null;
 				while ((infoData = lineReader.readLine()) != null) {
-					if (lineReader.getLineNumber() >=19) {
+					if (lineReader.getLineNumber() >=12) {
 						coursesInfo += infoData;
 						coursesInfo += "\n";
 					}
@@ -218,11 +218,11 @@ public class Model_ClassDirector {
 			
 			String infoData = null;
 			while ((infoData = lineReader.readLine()) != null) {
+				if (lineReader.getLineNumber() == 12) {
+					break;
+				}
 					teacherList += infoData;
 					teacherList += "\n";
-					if (lineReader.getLineNumber() == 18) {
-						break;
-					}
 //					System.out.println(lineReader.getLineNumber());
 //					System.out.println(teacherList);
 			}
@@ -264,7 +264,7 @@ public class Model_ClassDirector {
 	public void findAllCourses() {
 		
 		if (classTeachingRequirements.size() == 0) {
-			System.out.println("Sorry, no data was stored.");
+			System.err.println("Sorry, no data in Course List!");
 			return;
 		}
 //		System.out.println("Course ID\tCourse Name\tCourse TeacherRequ \tCourse Time \tCourse Location");
@@ -309,12 +309,12 @@ public class Model_ClassDirector {
 		
 		System.out.println("Please enter course Time");
 		Scanner sc3 = new Scanner(System.in);
-		String location = sc3.nextLine();
+		String time = sc3.nextLine();
 //		sc3.close();
 		
 		System.out.println("Please enter course Location");
 		Scanner sc4 = new Scanner(System.in);
-		String time = sc3.nextLine();
+		String location = sc3.nextLine();
 //		sc4.close();
 		Model_TeachingRequirement course = new Model_TeachingRequirement();
 		course.setCouseID(id);
@@ -431,54 +431,54 @@ public class Model_ClassDirector {
 		
 	
 	
-	public void updateCourse() throws IOException {
-		System.out.println("Please enter the course ID which need update:");
-		Scanner sc = new Scanner(System.in);
-		String id = sc.nextLine();
-//		sc.close();
-		int index = -1;
-		for (int i=0; i<classTeachingRequirements.size(); i++) {
-			Model_TeachingRequirement s = classTeachingRequirements.get(i);
-			if (s.getCouseID().equals(id)) {
-				index = i;
-			}
-		}
-		if (index == -1) {
-			System.out.println("Coures not found!");
-		}
-		else {
-			
-			System.out.println("Please enter course Name");
-			Scanner sc1 = new Scanner(System.in);
-			String name = sc1.nextLine();
-//			sc1.close();
-			
-			System.out.println("Please enter course Teacher Requirement");
-			Scanner sc2 = new Scanner(System.in);
-			String teacherreq = sc2.nextLine();
-//			sc2.close();
-			
-			System.out.println("Please enter course time");
-			Scanner sc3 = new Scanner(System.in);
-			String location = sc3.nextLine();
-//			sc3.close();
-			
-			System.out.println("Please enter course location");
-			Scanner sc4 = new Scanner(System.in);
-			String time = sc3.nextLine();
-//			sc4.close();
-			
-			Model_TeachingRequirement course = new Model_TeachingRequirement();
-			course.setCouseID(id);
-			course.setCourseName(name);
-			course.setCourseTeacherReq(teacherreq);
-			course.setCoursetime(time);
-			course.setCourseLocation(location);
-			System.out.println("Updated successful");
-		}
-		saveCoursesInfoTofile();
-	}
-	
+//	public void updateCourse() throws IOException {
+//		System.out.println("Please enter the course ID which need update:");
+//		Scanner sc = new Scanner(System.in);
+//		String id = sc.nextLine();
+////		sc.close();
+//		int index = -1;
+//		for (int i=0; i<classTeachingRequirements.size(); i++) {
+//			Model_TeachingRequirement s = classTeachingRequirements.get(i);
+//			if (s.getCouseID().equals(id)) {
+//				index = i;
+//			}
+//		}
+//		if (index == -1) {
+//			System.out.println("Coures not found!");
+//		}
+//		else {
+//			
+//			System.out.println("Please enter course Name");
+//			Scanner sc1 = new Scanner(System.in);
+//			String name = sc1.nextLine();
+////			sc1.close();
+//			
+//			System.out.println("Please enter course Teacher Requirement");
+//			Scanner sc2 = new Scanner(System.in);
+//			String teacherreq = sc2.nextLine();
+////			sc2.close();
+//			
+//			System.out.println("Please enter course time");
+//			Scanner sc3 = new Scanner(System.in);
+//			String location = sc3.nextLine();
+////			sc3.close();
+//			
+//			System.out.println("Please enter course location");
+//			Scanner sc4 = new Scanner(System.in);
+//			String time = sc3.nextLine();
+////			sc4.close();
+//			
+//			Model_TeachingRequirement course = new Model_TeachingRequirement();
+//			course.setCouseID(id);
+//			course.setCourseName(name);
+//			course.setCourseTeacherReq(teacherreq);
+//			course.setCoursetime(time);
+//			course.setCourseLocation(location);
+//			System.out.println("Updated successful");
+//		}
+//		saveCoursesInfoTofile();
+//	}
+//	
 	
 	public void saveCoursesInfoTofile() throws IOException {
 		
@@ -528,14 +528,10 @@ public class Model_ClassDirector {
 			
 			if (removed) {
 				CharArrayWriter  tempStream = new CharArrayWriter();  
-		        // 替换  
 		        String line = null;  
 		        while ( (line = bufIn.readLine()) != null) {  
-		            // 替换每行中, 符合条件的字符串  
 		            line = line.replaceAll(oldChar, newChar);  
-		            // 将该行写入内存  
 		            tempStream.write(line);  
-		            // 添加换行符  
 		            tempStream.append(System.getProperty("line.separator"));  
 		        }  
 				

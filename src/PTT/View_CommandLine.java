@@ -37,9 +37,8 @@ public class View_CommandLine {
 		System.out.println("1 > Course details");
 		System.out.println("2 > Add a new course");
 		System.out.println("3 > Delete courses");
-		System.out.println("4 > Edit course details");
-		System.out.println("5 > Log out");
-		System.out.println("6 > EXIT\n");
+		System.out.println("4 > Log out");
+		System.out.println("5 > EXIT\n");
 		System.out.println("Please enter your choice：");
 	}
 	
@@ -47,11 +46,10 @@ public class View_CommandLine {
 		System.out.println("\n");
 		System.out.println("Welcome to Teacher Manager System!\n");
 		System.out.println("1 > Teacher list");
-		System.out.println("2 > Add a teacher to the list");
-		System.out.println("3 > Delete a teacher from the list");
-		System.out.println("4 > Edit the teacher list");
-		System.out.println("5 > Login");
-		System.out.println("6 > EXIT\n");
+		System.out.println("2 > Match the courses");
+		System.out.println("3 > Save");
+		System.out.println("4 > Log out");
+		System.out.println("5 > EXIT\n");
 		System.out.println("Please enter your choice：");
 	}
 	

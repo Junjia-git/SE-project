@@ -1,10 +1,13 @@
 package PTT;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -67,6 +70,7 @@ public class Controller {
 		}
 		if (userInputC == 5) {
 			System.out.println("Quit Successfully!");
+			resetTheFile(filePath);
 			System.exit(0);
 		}
 		else {
@@ -96,13 +100,11 @@ public class Controller {
 				mc.deleteCourse();
 				break;
 			case 4:
-				mc.updateCourse();
-				break;
-			case 5:
 				System.out.println("\n" + "Log out successfully!" + "\n" + "System is still running.");
 				loginManagement(filePath);
-			case 6:
+			case 5:
 				System.out.println("Thanks for using Course Manager!");
+				resetTheFile(filePath);
 				System.exit(0);
 			default:
 				vc.worngInput();
@@ -121,18 +123,18 @@ public class Controller {
 			switch(userInputC) {
 			case 1:
 				mt.getTeacherList(mc);
-//				mt.printTeacherList();
 				break;
 			case 2:
+				mt.matchTheCourse(mc);
+				mt.showMatchResults();
 				break;
 			case 3:
+				mt.writeToFile();
 				break;
 			case 4:
-				break;
-			case 5:
 				System.out.println("\n" + "Log out successfully!" + "\n" + "System is still running.");
 				loginManagement(filePath);
-			case 6:
+			case 5:
 				System.out.println("Thanks for using Teacher Manager!");
 				System.exit(0);
 			default:
@@ -140,6 +142,65 @@ public class Controller {
 				teacherListProducing(filePath);
 			}
 		}
+	}
+	
+	
+	
+	public void resetTheFile(String filePath) {
+		BufferedWriter writer = null;
+		File file = new File(filePath);
+		
+		
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if (mc.getTeacherInitalList().size()>0) {
+			try {
+				writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+				StringBuilder data = new StringBuilder();
+				
+				for (int i = 0; i < mc.getTeacherInitalList().size(); i++) {
+					data.append(mc.getTeacherInitalList().get(i).getLecturerID());
+					data.append("\t" + mc.getTeacherInitalList().get(i).getLecturerName());
+					data.append("\t" + mc.getTeacherInitalList().get(i).getDegree());
+					data.append("\t" + mc.getTeacherInitalList().get(i).getMainCourse());
+					data.append("\t" + mc.getTeacherInitalList().get(i).getOtherCourseTeaching());
+					data.append("\r\n");
+				}
+				
+				for (int i = 0; i < mc.getInitalList().size(); i++) {
+					data.append(mc.getInitalList().get(i).getCouseID());
+					data.append("\t" + mc.getInitalList().get(i).getCourseName());
+					data.append("\t" + mc.getInitalList().get(i).getCourseTeacherReq());
+					data.append("\t" + mc.getInitalList().get(i).getCoursetime());
+					data.append("\t" + mc.getInitalList().get(i).getCourseLocation());
+					data.append("\r\n");
+				}
+				
+				writer.write(data.toString());
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (writer != null) {
+						writer.close();
+					}
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+			System.out.println("Reset File Successfully!");
+
+		}else {
+			System.err.println("Please Login Class Director First!");
+		}
+		
+
 	}
 	
 	
