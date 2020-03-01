@@ -39,6 +39,27 @@ public class Model_Teacher {
 	}
 	
 	
+	
+	public ArrayList<Model_TeacherList> getTeacherArrayList() {
+		return teacherArrayList;
+	}
+
+
+	public void setTeacherArrayList(ArrayList<Model_TeacherList> teacherArrayList) {
+		this.teacherArrayList = teacherArrayList;
+	}
+
+
+	public ArrayList<Model_TeacherAndClass> getTeachersAndClasses() {
+		return teachersAndClasses;
+	}
+
+
+	public void setTeachersAndClasses(ArrayList<Model_TeacherAndClass> teachersAndClasses) {
+		this.teachersAndClasses = teachersAndClasses;
+	}
+
+
 	public void getTeacherList(Model_ClassDirector classDirector) {
 		teacherArrayList.removeAll(teacherArrayList);
 		Model_TeacherList s = new Model_TeacherList();

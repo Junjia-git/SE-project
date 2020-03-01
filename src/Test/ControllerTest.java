@@ -30,7 +30,7 @@ public class ControllerTest {
 	public ControllerTest() {
 		mc = new Model_ClassDirector(filePath);
 		mt = new Model_Teacher(filePath);
-		ma = new Model_Administrator();
+		ma = new Model_Administrator(filePath);
 		mp = new Model_PTTDirector(filePath);
 		vc = new View_CommandLine();
 		mtl = new Model_TeacherList();

@@ -16,7 +16,7 @@ public class Model_PTTDirector {
 
 	
 	public Model_PTTDirector(String filePath) {
-		ma = new Model_Administrator();
+		ma = new Model_Administrator(filePath);
 		requests = new ArrayList<String>();
 		this.filePath = filePath;
 	}

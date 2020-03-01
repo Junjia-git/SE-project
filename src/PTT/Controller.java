@@ -136,6 +136,7 @@ public class Controller {
 				loginManagement(filePath);
 			case 5:
 				System.out.println("Thanks for using Teacher Manager!");
+				resetTheFile(filePath);
 				System.exit(0);
 			default:
 				vc.worngInput();
@@ -147,57 +148,62 @@ public class Controller {
 	
 	
 	public void resetTheFile(String filePath) {
+		
 		BufferedWriter writer = null;
 		File file = new File(filePath);
 		
-		
-		if (!file.exists()) {
-			try {
-				file.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		if (mc.getTeacherInitalList().size()>0) {
-			try {
-				writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
-				StringBuilder data = new StringBuilder();
-				
-				for (int i = 0; i < mc.getTeacherInitalList().size(); i++) {
-					data.append(mc.getTeacherInitalList().get(i).getLecturerID());
-					data.append("\t" + mc.getTeacherInitalList().get(i).getLecturerName());
-					data.append("\t" + mc.getTeacherInitalList().get(i).getDegree());
-					data.append("\t" + mc.getTeacherInitalList().get(i).getMainCourse());
-					data.append("\t" + mc.getTeacherInitalList().get(i).getOtherCourseTeaching());
-					data.append("\r\n");
-				}
-				
-				for (int i = 0; i < mc.getInitalList().size(); i++) {
-					data.append(mc.getInitalList().get(i).getCouseID());
-					data.append("\t" + mc.getInitalList().get(i).getCourseName());
-					data.append("\t" + mc.getInitalList().get(i).getCourseTeacherReq());
-					data.append("\t" + mc.getInitalList().get(i).getCoursetime());
-					data.append("\t" + mc.getInitalList().get(i).getCourseLocation());
-					data.append("\r\n");
-				}
-				
-				writer.write(data.toString());
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
+		if (mc.getTeacherInitalList().size()>0 && mc.getInitalList().size()>0) {
+			if (!file.exists()) {
 				try {
-					if (writer != null) {
-						writer.close();
-					}
-				} catch(IOException e) {
+					file.createNewFile();
+				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("Reset File Successfully!");
+			
+			if (mc.getTeacherInitalList().size()>0) {
+				try {
+					writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+					StringBuilder data = new StringBuilder();
+					
+					for (int i = 0; i < mc.getTeacherInitalList().size(); i++) {
+						data.append(mc.getTeacherInitalList().get(i).getLecturerID());
+						data.append("\t" + mc.getTeacherInitalList().get(i).getLecturerName());
+						data.append("\t" + mc.getTeacherInitalList().get(i).getDegree());
+						data.append("\t" + mc.getTeacherInitalList().get(i).getMainCourse());
+						data.append("\t" + mc.getTeacherInitalList().get(i).getOtherCourseTeaching());
+						data.append("\r\n");
+					}
+					
+					for (int i = 0; i < mc.getInitalList().size(); i++) {
+						data.append(mc.getInitalList().get(i).getCouseID());
+						data.append("\t" + mc.getInitalList().get(i).getCourseName());
+						data.append("\t" + mc.getInitalList().get(i).getCourseTeacherReq());
+						data.append("\t" + mc.getInitalList().get(i).getCoursetime());
+						data.append("\t" + mc.getInitalList().get(i).getCourseLocation());
+						data.append("\r\n");
+					}
+					
+					writer.write(data.toString());
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						if (writer != null) {
+							writer.close();
+						}
+					} catch(IOException e) {
+						e.printStackTrace();
+					}
+				}
+				System.out.println("Reset File Successfully!");
 
+			}else {
+				System.err.println("Please Login Class Director First!");
+			}
+			
 		}else {
-			System.err.println("Please Login Class Director First!");
+			System.err.println("No data!");
 		}
 		
 

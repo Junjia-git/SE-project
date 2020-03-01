@@ -1,8 +1,5 @@
 package PTT;
 
-import java.io.IOException;
-import java.util.Scanner;
-
 public class View_CommandLine {
 	private View_UserSelection userSelection;
 	
@@ -33,6 +30,8 @@ public class View_CommandLine {
 	
 	public void classManager() {
 		System.out.println("\n");
+		System.out.println("**Class Director**");
+		System.out.println("------------------");
 		System.out.println("Welcome to Class Director Manager System!\n");
 		System.out.println("1 > Course details");
 		System.out.println("2 > Add a new course");
@@ -40,10 +39,13 @@ public class View_CommandLine {
 		System.out.println("4 > Log out");
 		System.out.println("5 > EXIT\n");
 		System.out.println("Please enter your choice：");
+		System.out.println("--------------------------");
 	}
 	
 	public void teacherManager() {
 		System.out.println("\n");
+		System.out.println("**Teacher**");
+		System.out.println("------------");
 		System.out.println("Welcome to Teacher Manager System!\n");
 		System.out.println("1 > Teacher list");
 		System.out.println("2 > Match the courses");
@@ -51,93 +53,22 @@ public class View_CommandLine {
 		System.out.println("4 > Log out");
 		System.out.println("5 > EXIT\n");
 		System.out.println("Please enter your choice：");
+		System.out.println("--------------------------");
 	}
 	
-//	public void classDirectorIntialView(Model_ClassDirector mc, String filePath) {
-//		System.out.println("\n" + "\n");
-//		System.out.println("Class Director");
-//		System.out.println("------------------------");
-//		System.out.println("The Teaching Requirement");
-//		System.out.println("------------------------");
-//		mc.getTeachingRequirement(filePath);
-//		mc.classDirectorList();
-//		System.out.println("------------------");
-//		System.out.println("**Next**" + "\n" + "1. Pass it to the teacher" + "\n" + "2. Edit");
-//		System.out.println("------------------");
-//	}
-//	
-//	public void classDirectorEditView(Model_ClassDirector mc) {
-//		System.out.println("\n" + "\n");
-//		System.out.println("------------------------");
-//		System.out.println("**Editing**" + "\n" + "1. Add" + "\n" + "2. Remove");
-//		System.out.println("------------------------");
-//	}
-//
-//	
-//	public void teacherView(Model_Teacher mt, Model_ClassDirector mc) {
-//		System.out.println("\n" + "\n");
-//		System.out.println("Teacher");
-//		System.out.println("------------");
-//		System.out.println("Teacher List");
-//		System.out.println("------------");
-//		if (mc.getAddCounter()==0 && mc.getRemoveCounter()==0) {
-//			mc.withoutEdit();
-//			mt.matchClass();
-//		}
-//		if (mc.getAddCounter()==1 && mc.getRemoveCounter()==0) {
-//			mc.addListMethod();
-//			mt.matchClass();
-//			mc.setAddCounter(0);
-//		}
-//		if (mc.getAddCounter()==0 && mc.getRemoveCounter()==1) {
-//			mc.removeListMethod();
-//			mt.matchClass();
-//			mc.setRemoveCounter(0);
-//		}
-//		else {
-//			System.err.println("Cannot add and remove at the same time!");
-//
-//		}
-//		System.out.println("------------------");
-//		System.out.println("**Next**" + "\n" + "1. Pass it to the Administrator" + "\n" + "2. Edit");
-//		System.out.println("------------------");
-//	}
 	
-//	public void addThenPassToTeacherView(Model_Teacher mt, Model_ClassDirector mc) {
-//		System.out.println("\n" + "\n");
-//		System.out.println("Teacher");
-//		System.out.println("------------");
-//		System.out.println("Teacher List");
-//		System.out.println("Class Director added some lecturers in the teacher list");
-//		System.out.println("------------");
-//		mc.addListMethod();
-//		mt.matchClass();
-//		System.out.println("------------------");
-//		System.out.println("**Next**" + "\n" + "1. Pass it to the Administrator" + "\n" + "2. Edit");
-//		System.out.println("------------------");
-//	}
-//	
-//	public void removeThenPassToTeacherView(Model_Teacher mt, Model_ClassDirector mc) {
-//		System.out.println("\n" + "\n");
-//		System.out.println("Teacher");
-//		System.out.println("------------");
-//		System.out.println("Teacher List");
-//		System.out.println("Class Director removed some lecturers in the teacher list");
-//		System.out.println("------------");
-//		mc.removeListMethod();
-//		mt.matchClass();
-//		System.out.println("------------------");
-//		System.out.println("**Next**" + "\n" + "1. Pass it to the Administrator" + "\n" + "2. Edit");
-//		System.out.println("------------------");
-//	}
-	
-	
-	public void administratorView() {
-		System.out.println("\n" + "\n");
-		System.out.println("Administrator");
-		System.out.println("--------------");
-		System.out.println("Selection List");
-		System.out.println("--------------");
+	public void administratorManager() {
+		System.out.println("\n");
+		System.out.println("**Administrator**");
+		System.out.println("-----------------");
+		System.out.println("Welcome to Teacher Manager System!\n");
+		System.out.println("1 > Requests list");
+		System.out.println("2 > Select suitable lecturers");
+		System.out.println("3 > Save");
+		System.out.println("4 > Log out");
+		System.out.println("5 > EXIT\n");
+		System.out.println("Please enter your choice：");
+		System.out.println("--------------------------");
 	}
 	
 	public void pttDirectorView(Model_PTTDirector mp, String filepath) {

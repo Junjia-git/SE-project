@@ -137,6 +137,7 @@ public class Model_ClassDirector {
 	
 	public void resetCourseInfo() {
 		classTeachingRequirements.removeAll(classTeachingRequirements);
+//		initalList.removeAll(initalList);
 	}
 	
 	public void resetTeacherInfo() {
@@ -183,9 +184,13 @@ public class Model_ClassDirector {
 						initalList.add(mtr);
 						classTeachingRequirements.add(mtr);
 						courseCounter++;
+					}else {
+						System.err.println("Failed to read the file!");
 					}
 				}
 				
+			}else {
+				System.err.println("File not found!");
 			}
 				
 			}catch (IOException e) {
@@ -323,7 +328,6 @@ public class Model_ClassDirector {
 		course.setCoursetime(time);
 		course.setCourseLocation(location);
 		
-		initalList.add(course);
 		classTeachingRequirements.add(course);
 		
 		added = true;

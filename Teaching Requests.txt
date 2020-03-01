@@ -16,5 +16,3 @@ CourseID	Course Name	                 Needs	Course Time	   Course Location
 04	Internet Technology	         Pro.	12-13(Thu)	   James Watt Building
 05	Algorithms & Data Structures	 Pro.	10-12(Fri)	   Gregory Building
 06	Cyber Security Fundamentals	 Pro.	11-13(Fri)	   St Andrews Building
-07	Language	Dro.	9-11(Mon)	Adam Smith Building
-08	Skills for Study	Dro.	10-12(Tue)	Gregory Building
