@@ -57,16 +57,16 @@ public class Controller {
 		vc.userLogIn();
 		int userInputC = vc.getUserSelection().userSelectionListener();
 		if (userInputC == 1) {
-			classDirectorProducing(filePath);
+			classDirectorManagerSystem(filePath);
 		}
 		if (userInputC == 2) {
-			teacherListProducing(filePath);
+			teacherDirectorManangerSystem(filePath);
 		}
 		if (userInputC == 3) {
-			requestsListProducing(filePath);
+			adminStratorSystem(filePath);
 		}
 		if (userInputC == 4) {
-			
+			pttDirectorSystem();
 		}
 		if (userInputC == 5) {
 			System.out.println("Quit Successfully!");
@@ -84,7 +84,7 @@ public class Controller {
 	}
 	
 	
-	public void classDirectorProducing(String filePath) throws IOException {
+	public void classDirectorManagerSystem(String filePath) throws IOException {
 		mc.getCourseInfo();
 		while(true) {
 			vc.classManager();
@@ -108,14 +108,14 @@ public class Controller {
 				System.exit(0);
 			default:
 				vc.worngInput();
-				classDirectorProducing(filePath);
+				classDirectorManagerSystem(filePath);
 			}
 		}
 		
 	}
 
 	
-	public void teacherListProducing(String filePath) throws IOException {
+	public void teacherDirectorManangerSystem(String filePath) throws IOException {
 		mc.getTeacherInfo();
 		while(true) {
 			vc.teacherManager();
@@ -140,14 +140,14 @@ public class Controller {
 				System.exit(0);
 			default:
 				vc.worngInput();
-				teacherListProducing(filePath);
+				teacherDirectorManangerSystem(filePath);
 			}
 		}
 	}
 	
 	
 	
-	public void requestsListProducing(String filePath) throws IOException{
+	public void adminStratorSystem(String filePath) throws IOException{
 		ma.readTeachingRequests();
 		while(true) {
 			vc.administratorManager();
@@ -174,7 +174,7 @@ public class Controller {
 				System.exit(0);
 			default:
 				vc.worngInput();
-				teacherListProducing(filePath);
+				adminStratorSystem(filePath);
 			}
 		}
 	}
@@ -191,6 +191,11 @@ public class Controller {
 			}
 			
 		}
+	}
+	
+	
+	public void pttDirectorSystem() {
+		
 	}
 	
 	

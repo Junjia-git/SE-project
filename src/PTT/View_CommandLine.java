@@ -46,7 +46,7 @@ public class View_CommandLine {
 		System.out.println("\n");
 		System.out.println("**Teacher**");
 		System.out.println("------------");
-		System.out.println("Welcome to The Teacher Manager System!\n");
+		System.out.println("Welcome to The Teacher Director Manager System!\n");
 		System.out.println("1 > Teacher list");
 		System.out.println("2 > Match the courses");
 		System.out.println("3 > Save");
@@ -61,7 +61,7 @@ public class View_CommandLine {
 		System.out.println("\n");
 		System.out.println("**Administrator**");
 		System.out.println("-----------------");
-		System.out.println("Welcome to The Administrator Manager System!\n");
+		System.out.println("Welcome to The Administrator System!\n");
 		System.out.println("1 > Requests list");
 		System.out.println("2 > Select suitable lecturers");
 		System.out.println("3 > Print out Requests List");
@@ -74,13 +74,19 @@ public class View_CommandLine {
 	
 	
 	
-	public void pttDirectorView(Model_PTTDirector mp, String filepath) {
-		System.out.println("\n" + "\n");
-		System.out.println("PTT Director");
-		System.out.println("------------------");
-		System.out.println("The teaching requests are ready. Please check!");
-//		mp.readTeachingRequests(filepath);
-		System.out.println("Do you want to approve these requests above?" + "\n" + "Press 1 - Yes" + "\n" + "Press 2 - No");
+	public void pttDirectorManager(Model_PTTDirector mp, String filepath) {
+		System.out.println("\n");
+		System.out.println("**PTT Director**");
+		System.out.println("----------------");
+		System.out.println("Welcome to The PTT Director Manager System!\n");
+		System.out.println("1 > The Teaching Requests List");
+		System.out.println("2 > Approve the Teaching Requests List");
+		System.out.println("3 > Add comments to the Class Director and Teacher Director");
+		System.out.println("4 > Save the comments");
+		System.out.println("5 > Log out");
+		System.out.println("6 > EXIT\n");
+		System.out.println("Please enter your choice：");
+		System.out.println("--------------------------");
 		
 	}
 	

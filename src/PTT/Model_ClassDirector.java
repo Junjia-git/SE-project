@@ -528,6 +528,7 @@ public class Model_ClassDirector {
 			Model_TeachingRequirement s = classTeachingRequirements.get(removeID);
 			String oldChar = s.getCouseID() + "\t"  + s.getCourseName() + "\t" 
 					+ s.getCourseTeacherReq() + "\t" + s.getCoursetime() + "\t"  + s.getCourseLocation();
+			
 			String newChar = "";
 			
 			if (removed) {
