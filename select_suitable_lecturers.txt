@@ -1,0 +1,7 @@
+CoureseID	CourseName	Requirement	lecturer
+01    System Network                      Dr.    02 (Pro.)
+02    Programing                      Dr.    01 (Pro.)
+03    Advanced Programing              Pro.    04 (Pro.)
+04    Internet Technology              Pro.    08 (Dr.)
+05    Algorithms & Data Structures      Pro.    01 (Pro.)
+06    Cyber Security Fundamentals      Pro.    03 (Pro.)
