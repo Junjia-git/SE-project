@@ -19,11 +19,13 @@ public class Model_Administrator {
 	private static ArrayList<String> requests;
 	private ArrayList<Model_TeacherAndClass> teachersAndClassesList; 
 	private ArrayList<Model_TeacherAndClass> requestsList;
-	private 
+	private ArrayList<Model_TeachingRequirement> courseList;
+	private int courseCounter;
 	String filePath;
 	private int index;
-	private int counter1;
-	private int counter2;
+	private boolean firstEnter;
+//	private int counter1;
+//	private int counter2;
 
 	
 	public Model_Administrator(String filePath) {
@@ -31,13 +33,66 @@ public class Model_Administrator {
 		requestsList = new ArrayList<Model_TeacherAndClass>();
 		ta = new Model_TeacherAndClass();
 		results=new ArrayList<Model_TeacherMatch>();
+		courseList = new ArrayList<Model_TeachingRequirement>();
 		requests = new ArrayList<>();
+		courseCounter = 0;
 		index = 0;
-		counter1 = 0;
-		counter2 = 0;
+		firstEnter = true;
+//		counter1 = 0;
+//		counter2 = 0;
 		this.filePath = filePath;
 	}
 	
+	
+	
+	public ArrayList<Model_TeacherAndClass> getTeachersAndClassesList() {
+		return teachersAndClassesList;
+	}
+
+
+
+	public void setTeachersAndClassesList(ArrayList<Model_TeacherAndClass> teachersAndClassesList) {
+		this.teachersAndClassesList = teachersAndClassesList;
+	}
+
+
+
+	public ArrayList<Model_TeacherAndClass> getRequestsList() {
+		return requestsList;
+	}
+
+
+
+	public void setRequestsList(ArrayList<Model_TeacherAndClass> requestsList) {
+		this.requestsList = requestsList;
+	}
+
+
+
+	public ArrayList<Model_TeachingRequirement> getCourseList() {
+		return courseList;
+	}
+
+
+
+	public void setCourseList(ArrayList<Model_TeachingRequirement> courseList) {
+		this.courseList = courseList;
+	}
+
+
+
+	public int getCourseCounter() {
+		return courseCounter;
+	}
+
+
+
+	public void setCourseCounter(int courseCounter) {
+		this.courseCounter = courseCounter;
+	}
+
+
+
 	public void readTeachingRequests() {
 		teachersAndClassesList.removeAll(teachersAndClassesList);
 		
@@ -65,9 +120,9 @@ public class Model_Administrator {
 					if (columnArr.length>0) {
 						Model_TeacherAndClass list = new Model_TeacherAndClass();
 						list.setCouseID(columnArr[0]);
-						list.setCourseName(columnArr[i]);
-						list.setCourseTeacherReq(columnArr[i]);
-						list.setLecturerIDWithDegree(columnArr[i]);
+						list.setCourseName(columnArr[1]);
+						list.setCourseTeacherReq(columnArr[2]);
+						list.setLecturerIDWithDegree(columnArr[3]);
 						teachersAndClassesList.add(list);
 						
 					}else {
@@ -121,115 +176,171 @@ public class Model_Administrator {
 		}
 		for (int i=0; i<teachersAndClassesList.size(); i++) {
 			Model_TeacherAndClass s = teachersAndClassesList.get(i);
-			System.out.println(s.getCouseID() + "    " + s.getCourseName() + "     " 
-			+ s.getCourseTeacherReq() + "    " + s.getLecturerIDWithDegree());
+			System.out.println(s.getCouseID() + "\t" + s.getCourseName() + "\t" 
+			+ s.getCourseTeacherReq() + "\t" + s.getLecturerIDWithDegree());
 		}
 	}
 	
+//	public void selectLecturers() {
+//		if (teachersAndClassesList.size()>0) {
+//			for (int i = 0; i < teachersAndClassesList.size(); i++) {
+//				for (int j = 0; j < teachersAndClassesList.size(); j++) {
+//					if (teachersAndClassesList.get(i).getCouseID().equals(teachersAndClassesList.get(j).getCouseID())
+//							&& i != j) {
+//						if (teachersAndClassesList.get(i).getLecturerIDWithDegree().contains(teachersAndClassesList.get(i).getCourseTeacherReq())) {
+//							index = i;
+//							counter1++;
+//						}
+//						if (teachersAndClassesList.get(j).getLecturerIDWithDegree().contains(teachersAndClassesList.get(j).getCourseTeacherReq())) {
+//							index = j;
+//							counter2++;
+//						}
+//						addToRequestsList();
+//						teachersAndClassesList.removeAll(requestsList);
+//					}
+//				}
+//				
+//			}
+//			
+//			
+//			
+//		}else {
+//			System.err.println("Sorry, no data in the list!");
+//		}
 	public void selectLecturers() {
-		if (teachersAndClassesList.size()>0) {
-			for (int i = 0; i < teachersAndClassesList.size(); i++) {
-				for (int j = 0; j < teachersAndClassesList.size(); j++) {
-					if (teachersAndClassesList.get(i).getCouseID().equals(teachersAndClassesList.get(j).getCouseID())
-							&& i != j) {
-						if (teachersAndClassesList.get(i).getLecturerIDWithDegree().contains(teachersAndClassesList.get(i).getCourseTeacherReq())) {
-							index = i;
-							counter1++;
-						}
-						if (teachersAndClassesList.get(j).getLecturerIDWithDegree().contains(teachersAndClassesList.get(j).getCourseTeacherReq())) {
-							index = j;
-							counter2++;
-						}
-						addToRequestsList();
-						teachersAndClassesList.removeAll(requestsList);
+		
+		
+		System.out.println("Please enter a course ID:");;
+		Scanner s1 = new Scanner(System.in);
+		String courseID = s1.nextLine();
+		
+		System.out.println("Please enter a lecturerID");
+		Scanner s2 = new Scanner(System.in);
+		String lecturerID = s2.nextLine();
+		
+		for (int i = 0; i < teachersAndClassesList.size(); i++) {
+			Model_TeacherAndClass list = teachersAndClassesList.get(i);
+			
+			if (courseID.equals(teachersAndClassesList.get(i).getCouseID())
+					&& teachersAndClassesList.get(i).getLecturerIDWithDegree().contains(lecturerID)
+					) {
+				requestsList.add(list);
+				courseCounter--;
+//				index = i;
+				
+				String classID = teachersAndClassesList.get(i).getCouseID();
+				for (int j = 0; j < courseList.size(); j++) {
+					if (classID.equals(courseList.get(j).getCouseID())) {
+						courseList.remove(j);
 					}
 				}
 				
+				for (int j = 0; j < teachersAndClassesList.size(); j++) {
+					if (classID.equals(teachersAndClassesList.get(j).getCouseID())) {
+						teachersAndClassesList.remove(j);
+					}
+				}
 			}
+		}
+
+	}
+	
+	public void selectView(Model_ClassDirector course) {
+		if (firstEnter) {
+			courseCounter = course.getCourseCounter()-1;
+			System.out.println("\n" + "There are " + courseCounter + " courses left to be selected." + "\n");
+			System.out.println("---------------------------------");
+			for (int i = 1; i < course.getInitalList().size(); i++) {
+				System.out.println(course.getInitalList().get(i).getCouseID() + "\t"+ course.getInitalList().get(i).getCourseName());
+				Model_TeachingRequirement s = course.getInitalList().get(i);
+				courseList.add(s);
+			}
+			System.out.println("---------------------------------");
+			firstEnter = false;
+			printOutList();
 			
-			
+			Model_TeacherAndClass title = new Model_TeacherAndClass();
+			title.setCouseID("Course ID");
+			title.setCourseName("Course Name");
+			title.setCourseTeacherReq("Requirement");
+			title.setLecturerIDWithDegree("Lecturer(Degree)");
+			requestsList.add(title);
 			
 		}else {
-			System.err.println("Sorry, no data in the list!");
-		}
-		
-	System.out.println("Please enter course ID:");;
-	Scanner s1 = new Scanner(System.in);
-	String courseID = s1.nextLine();
-	
-	System.out.println("Please enter lecturerID");
-	Scanner s2 = new Scanner(System.in);
-	String lecturerID = s2.nextLine();
-	
-	
-	
-	for (int i = 0; i < teachersAndClassesList.size(); i++) {
-		Model_TeacherAndClass list = teachersAndClassesList.get(i);
-		if (courseID.equals(teachersAndClassesList.get(i).getCouseID())
-				&& teachersAndClassesList.get(i).getLecturerIDWithDegree().contains(lecturerID)) {
-			requestsList.add(list);
-		}
-		teachersAndClassesList.removeAll(requestsList);
-	}
-	
-
-		
-	}
-	
-	
-	public void addToRequestsList() {
-		if (counter1 == counter2) {
+			System.out.println("\n" + "There are " + courseCounter + " courses left to be selected." + "\n");
+			System.out.println("---------------------------------");
+			for (int i = 0; i < courseList.size(); i++) {
+				System.out.println(courseList.get(i).getCouseID() + "\t" + courseList.get(i).getCourseName());
+			}
+			System.out.println("---------------------------------");
+			System.out.println(courseList.size());
 			
+			printOutList();
 		}
 	}
+	
+	
+	
+	public void printOutRequestsList() {
+		if (requestsList.size() == 0) {
+			System.err.println("Sorry, no data in the list!");
+			return;
+		}
+		for (int i=0; i<requestsList.size(); i++) {
+			Model_TeacherAndClass s = requestsList.get(i);
+			System.out.println("\n" + s.getCouseID() + "\t" + s.getCourseName() + "\t" 
+			+ s.getCourseTeacherReq() + "\t" + s.getLecturerIDWithDegree());
+		}
+	}
+	
 
 	public void writeToFile() {
 
-//		BufferedWriter writer = null;
-//
-//		File file = new File(filePath);
-//		
-//		if (!file.exists()) {
-//			try {
-//				file.createNewFile();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//		if (teachersAndClasses.size()>0) {
-//			try {
-//				writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,true), "UTF-8"));
-//				StringBuilder data = new StringBuilder();
-//				
-//				for (int i = 0; i < teachersAndClasses.size(); i++) {
-//					data.append(teachersAndClasses.get(i).getCouseID());
-//					data.append("\t" + teachersAndClasses.get(i).getCourseName());
-//					data.append("\t" + teachersAndClasses.get(i).getCourseTeacherReq());
-//					data.append("\t" + results.get(i).getLecturerMatch());
-//					data.append("\r\n");
-//				}
-//				
+		BufferedWriter writer = null;
+
+		File file = new File(filePath);
+		
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if (requestsList.size()>0) {
+			try {
+				writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+				StringBuilder data = new StringBuilder();
+				
+				for (int i = 0; i < requestsList.size(); i++) {
+					data.append(requestsList.get(i).getCouseID());
+					data.append("\t" + requestsList.get(i).getCourseName());
+					data.append("\t" + requestsList.get(i).getCourseTeacherReq());
+					data.append("\t" + requestsList.get(i).getLecturerIDWithDegree());
+					data.append("\r\n");
+				}
+				
 //				System.out.println(data);
-//				writer.write(data.toString());
-//				
-//				
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			} finally {
-//				try {
-//					if (writer != null) {
-//						writer.close();
-//					}
-//				} catch(IOException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//			System.out.println("\n"+"File saved!");
-//		}else {
-//			System.err.println("No data to be saved!" + "\n" + "Please match the courses first!");
-//		}
-//		
+				writer.write(data.toString());
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (writer != null) {
+						writer.close();
+					}
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+			System.out.println("\n"+"File saved!");
+		}else {
+			System.err.println("No data to be saved!" + "\n" + "Please match the courses first!");
+		}
+		
 		
 	}
 }

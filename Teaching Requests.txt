@@ -9,7 +9,7 @@ LecturerID	LecturerName	Degree	MainCourse	OtherCourse
 08	Amy	Dr.	Internet Technology	/
 09	Kay	Dr.	Algorithms & Data Structures	/
 10	Mia	Dr.	Advanced Programing	/
-CourseID	Course Name	                 Needs	Course Time	   Course Location
+CourseID	Course Name	Requirement	Course Time	   Course Location
 01	System Network	                 Dr.	9-11(Mon)	   St Andrews Building
 02	Programing	                 Dr.	10-12(Tue)	   Adam Smith Building
 03	Advanced Programing	         Pro.	11-13(Wed)	   Gregory Building

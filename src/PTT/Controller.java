@@ -63,7 +63,7 @@ public class Controller {
 			teacherListProducing(filePath);
 		}
 		if (userInputC == 3) {
-			
+			requestsListProducing(filePath);
 		}
 		if (userInputC == 4) {
 			
@@ -147,6 +147,54 @@ public class Controller {
 	
 	
 	
+	public void requestsListProducing(String filePath) throws IOException{
+		ma.readTeachingRequests();
+		while(true) {
+			vc.administratorManager();
+			int userInputD = vu.userSelectionListener();
+			switch(userInputD) {
+			case 1:
+				ma.printOutList();
+				break;
+			case 2:
+				adminSelect();
+				break;
+			case 3:
+				ma.printOutRequestsList();
+				break;
+			case 4:
+				ma.writeToFile();
+				break;
+			case 5:
+				System.out.println("\n" + "Log out successfully!" + "\n" + "System is still running.");
+				loginManagement(filePath);
+			case 6:
+				System.out.println("Thanks for using Teacher Manager!");
+				resetTheFile(filePath);
+				System.exit(0);
+			default:
+				vc.worngInput();
+				teacherListProducing(filePath);
+			}
+		}
+	}
+	
+	public void adminSelect() {
+		
+		while(true) {
+			ma.selectView(mc);
+			ma.selectLecturers();
+			if (ma.getCourseCounter() == 0) {
+				System.out.println("\n"+ "Each course was selected with one lecturer." + "\n" + 
+									"The Teaching Requests Are Ready Now!");
+				break;
+			}
+			
+		}
+	}
+	
+	
+	
 	public void resetTheFile(String filePath) {
 		
 		BufferedWriter writer = null;
@@ -176,6 +224,7 @@ public class Controller {
 					}
 					
 					for (int i = 0; i < mc.getInitalList().size(); i++) {
+//						data.append("\n");
 						data.append(mc.getInitalList().get(i).getCouseID());
 						data.append("\t" + mc.getInitalList().get(i).getCourseName());
 						data.append("\t" + mc.getInitalList().get(i).getCourseTeacherReq());

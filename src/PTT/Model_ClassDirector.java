@@ -137,7 +137,7 @@ public class Model_ClassDirector {
 	
 	public void resetCourseInfo() {
 		classTeachingRequirements.removeAll(classTeachingRequirements);
-//		initalList.removeAll(initalList);
+		initalList.removeAll(initalList);
 	}
 	
 	public void resetTeacherInfo() {
@@ -275,8 +275,8 @@ public class Model_ClassDirector {
 //		System.out.println("Course ID\tCourse Name\tCourse TeacherRequ \tCourse Time \tCourse Location");
 		for (int i=0; i<classTeachingRequirements.size(); i++) {
 			Model_TeachingRequirement s = classTeachingRequirements.get(i);
-			System.out.println(s.getCouseID() + "    " + s.getCourseName() + "     " 
-			+ s.getCourseTeacherReq() + "    " + s.getCoursetime() + "    " + s.getCourseLocation());
+			System.out.println(s.getCouseID() + "\t" + s.getCourseName() + "\t"
+			+ s.getCourseTeacherReq() + "\t" + s.getCoursetime() + "\t" + s.getCourseLocation());
 		}
 	}
 	
@@ -513,7 +513,7 @@ public class Model_ClassDirector {
 //			data.append("\n");
 			if (added) {
 			int c = courseCounter-1;
-			System.out.println(courseCounter);
+//			System.out.println(courseCounter);
 //				data.append("\n");
 				data.append("\r\n");
 				data.append(classTeachingRequirements.get(c).getCouseID());

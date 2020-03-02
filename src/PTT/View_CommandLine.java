@@ -32,7 +32,7 @@ public class View_CommandLine {
 		System.out.println("\n");
 		System.out.println("**Class Director**");
 		System.out.println("------------------");
-		System.out.println("Welcome to Class Director Manager System!\n");
+		System.out.println("Welcome to The Class Director Manager System!\n");
 		System.out.println("1 > Course details");
 		System.out.println("2 > Add a new course");
 		System.out.println("3 > Delete courses");
@@ -46,7 +46,7 @@ public class View_CommandLine {
 		System.out.println("\n");
 		System.out.println("**Teacher**");
 		System.out.println("------------");
-		System.out.println("Welcome to Teacher Manager System!\n");
+		System.out.println("Welcome to The Teacher Manager System!\n");
 		System.out.println("1 > Teacher list");
 		System.out.println("2 > Match the courses");
 		System.out.println("3 > Save");
@@ -61,15 +61,18 @@ public class View_CommandLine {
 		System.out.println("\n");
 		System.out.println("**Administrator**");
 		System.out.println("-----------------");
-		System.out.println("Welcome to Teacher Manager System!\n");
+		System.out.println("Welcome to The Administrator Manager System!\n");
 		System.out.println("1 > Requests list");
 		System.out.println("2 > Select suitable lecturers");
-		System.out.println("3 > Save");
-		System.out.println("4 > Log out");
-		System.out.println("5 > EXIT\n");
+		System.out.println("3 > Print out Requests List");
+		System.out.println("4 > Save the list");
+		System.out.println("5 > Log out");
+		System.out.println("6 > EXIT\n");
 		System.out.println("Please enter your choice：");
 		System.out.println("--------------------------");
 	}
+	
+	
 	
 	public void pttDirectorView(Model_PTTDirector mp, String filepath) {
 		System.out.println("\n" + "\n");

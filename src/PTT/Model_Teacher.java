@@ -149,11 +149,12 @@ public class Model_Teacher {
 		
 		for (int i = 0; i < teachersAndClasses.size(); i++) {
 			Model_TeacherAndClass list = teachersAndClasses.get(i);
-			System.out.println(list.getCouseID() +  "    " + list.getCourseName() +  "    " 
-					+ list.getCourseTeacherReq() +  "    " + list.getLecturerIDWithDegree()
-					);
+			System.out.println(list.getCouseID() +  "\t" + list.getCourseName() +  "\t"
+					+ list.getCourseTeacherReq() +  "\t" + list.getLecturerIDWithDegree());
 		}
 	}
+	
+	
 	
 	public void writeToFile() {
 
