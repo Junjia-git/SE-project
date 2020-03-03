@@ -38,24 +38,18 @@ public class Controller {
 	
 	public void startRunning(String filePath) throws IOException {
 		vc.startRunning();
-//		int userInputA = vc.getUserSelection().userSelectionListener();
-//		if (userInputA == 1) {
 		loginManagement(filePath);
-		
-//		classDirectorProducing(filePath);
-//		}
-//		else if (userInputA == 2) {
-			
-//		}else {
-//			vc.worngInput();
-//			startRunning(filePath);
-//		}
-		
 	}
 	
 	public void loginManagement(String filePath) throws IOException {
 		vc.userLogIn();
 		int userInputC = vc.getUserSelection().userSelectionListener();
+		
+		if (mp.isOneRoundOver()) {
+			System.err.println("Round 1 is over" + "\n" + "Please reset the file, if you want to continue!");
+			mp.setOneRoundOver(false);
+		}
+		
 		if (userInputC == 1) {
 			classDirectorManagerSystem(filePath);
 		}
@@ -66,25 +60,39 @@ public class Controller {
 			adminStratorSystem(filePath);
 		}
 		if (userInputC == 4) {
-			pttDirectorSystem();
+			pttDirectorSystem(filePath);
 		}
 		if (userInputC == 5) {
+			seeComments(mp);
+			
+			loginManagement(filePath);
+		}
+		if (userInputC == 6) {
+			resetTheFile(filePath);
+			loginManagement(filePath);
+		}
+		if (userInputC == 7) {
 			System.out.println("Quit Successfully!");
 			resetTheFile(filePath);
 			System.exit(0);
 		}
-		else {
-			vc.worngInput();
-			loginManagement(filePath);
-		}
+		
 	}
 	
-	public void passToAdmin() {
-		
+	public void seeComments(Model_PTTDirector ptt) {
+		if (ptt.getResults().size()>0) {
+			for (int i = 0; i < ptt.getResults().size(); i++) {
+				System.out.println(ptt.getResults().get(i));
+			}
+			
+		}else {
+			System.err.println("NO COMMENTS!");
+		}
 	}
 	
 	
 	public void classDirectorManagerSystem(String filePath) throws IOException {
+		
 		mc.getCourseInfo();
 		while(true) {
 			vc.classManager();
@@ -194,8 +202,37 @@ public class Controller {
 	}
 	
 	
-	public void pttDirectorSystem() {
-		
+	public void pttDirectorSystem(String filePath) throws IOException {
+		mp.readTeachingRequests(ma);
+		while(true) {
+			vc.pttDirectorManager(mp, filePath);
+			int userInputE = vu.userSelectionListener();
+			switch(userInputE) {
+			case 1:
+				mp.printOutReqList();
+				break;
+			case 2:
+				mp.approveReqList(vu);
+				break;
+			case 3:
+				mp.addComments();
+				break;
+			case 4:
+				mp.save();
+				break;
+			case 5:
+				mp.setOneRoundOver(true);
+				System.out.println("\n" + "Log out successfully!" + "\n" + "System is still running.");
+				loginManagement(filePath);
+			case 6:
+				System.out.println("Thanks for using the PTT Director System!");
+				resetTheFile(filePath);
+				System.exit(0);
+			default:
+				vc.worngInput();
+				adminStratorSystem(filePath);
+			}
+		}
 	}
 	
 	
@@ -257,41 +294,12 @@ public class Controller {
 			}
 			
 		}else {
-			System.err.println("No data!");
+			System.err.println("Reset unsuccessfully! At least login the Teacher Director.");
 		}
 		
 
 	}
 	
-	
-	
-
-//	public void editRequirement(String filePath, String content) {
-//		int input = vc.getUserSelection().userSelectionListener();
-//		if (input == 1 && count == 1) {
-//			mc.writeNewRequirement(filePath, content);
-//			mc.setAddCounter(1);
-//			vc.afterEditingThenPass();
-//			vc.teacherView(mt, mc);
-//		}
-//		if (input == 2 && count == 1) {
-//			mc.removeRequirement();
-//			mc.setRemoveCounter(1);
-//			vc.afterEditingThenPass();
-//			vc.teacherView(mt, mc);
-//		}
-//		if (input == 1 && count == 2) {
-//			
-//		}
-//		if (input == 2 && count == 2) {
-//			
-//		}
-//		else {
-//			vc.worngInput();
-//			editRequirement(filePath, content);
-//		}
-//		
-//	}
 	
 	
 	

@@ -23,7 +23,9 @@ public class View_CommandLine {
 		System.out.println("**Login**");
 		System.out.println("------------------");
 		System.out.println("1. Class Director" + "\n" + "2. Teacher" + "\n" + 
-							"3. Administrator" + "\n" +  "4. PTT Director" + "\n" + "5. EXIT");
+							"3. Administrator" + "\n" +  "4. PTT Director" + "\n" + 
+							"------------------" + "\n" + "5. See PTT Director comments" + "\n" + "6. Reset the file" + "\n" +
+							"7. EXIT");
 		System.out.println("------------------");
  
 	}
@@ -80,8 +82,8 @@ public class View_CommandLine {
 		System.out.println("----------------");
 		System.out.println("Welcome to The PTT Director Manager System!\n");
 		System.out.println("1 > The Teaching Requests List");
-		System.out.println("2 > Approve the Teaching Requests List");
-		System.out.println("3 > Add comments to the Class Director and Teacher Director");
+		System.out.println("2 > Approve or not");
+		System.out.println("3 > Add comments");
 		System.out.println("4 > Save the comments");
 		System.out.println("5 > Log out");
 		System.out.println("6 > EXIT\n");
@@ -91,7 +93,7 @@ public class View_CommandLine {
 	}
 	
 	public void worngInput() {
-		System.err.println("Undefined input. Please enter a number again!");
+		System.err.println("\n" + "Undefined input. Please enter again!");
 	}
 	
 //	public void saveAndLogin() {
@@ -99,8 +101,8 @@ public class View_CommandLine {
 //		userLogIn();
 //	}
 
-	public void afterEditingThenPass() {
-		System.out.println("Edit successfully!" + "\n" + "Now pass the teaching requirement to the teacher automatically");
-
-	}
+//	public void afterEditingThenPass() {
+//		System.out.println("Edit successfully!" + "\n" + "Now pass the teaching requirement to the teacher automatically");
+//
+//	}
 }

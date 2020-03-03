@@ -10,9 +10,9 @@ LecturerID	LecturerName	Degree	MainCourse	OtherCourse
 09	Kay	Dr.	Algorithms & Data Structures	/
 10	Mia	Dr.	Advanced Programing	/
 CourseID	Course Name	Requirement	Course Time	   Course Location
-01	System Network	                 Dr.	9-11(Mon)	   St Andrews Building
-02	Programing	                 Dr.	10-12(Tue)	   Adam Smith Building
-03	Advanced Programing	         Pro.	11-13(Wed)	   Gregory Building
-04	Internet Technology	         Pro.	12-13(Thu)	   James Watt Building
-05	Algorithms & Data Structures	 Pro.	10-12(Fri)	   Gregory Building
-06	Cyber Security Fundamentals	 Pro.	11-13(Fri)	   St Andrews Building
+01	System Network	                 Dr.	Mon	   St Andrews Building
+02	Programing	                 Dr.	Tue	   Adam Smith Building
+03	Advanced Programing	         Pro.	Wed	   Gregory Building
+04	Internet Technology	         Pro.	Thu	   James Watt Building
+05	Algorithms & Data Structures	 Pro.	Fri	   Gregory Building
+06	Cyber Security Fundamentals	 Pro.	Fri	   St Andrews Building

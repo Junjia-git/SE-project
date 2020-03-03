@@ -181,34 +181,7 @@ public class Model_Administrator {
 		}
 	}
 	
-//	public void selectLecturers() {
-//		if (teachersAndClassesList.size()>0) {
-//			for (int i = 0; i < teachersAndClassesList.size(); i++) {
-//				for (int j = 0; j < teachersAndClassesList.size(); j++) {
-//					if (teachersAndClassesList.get(i).getCouseID().equals(teachersAndClassesList.get(j).getCouseID())
-//							&& i != j) {
-//						if (teachersAndClassesList.get(i).getLecturerIDWithDegree().contains(teachersAndClassesList.get(i).getCourseTeacherReq())) {
-//							index = i;
-//							counter1++;
-//						}
-//						if (teachersAndClassesList.get(j).getLecturerIDWithDegree().contains(teachersAndClassesList.get(j).getCourseTeacherReq())) {
-//							index = j;
-//							counter2++;
-//						}
-//						addToRequestsList();
-//						teachersAndClassesList.removeAll(requestsList);
-//					}
-//				}
-//				
-//			}
-//			
-//			
-//			
-//		}else {
-//			System.err.println("Sorry, no data in the list!");
-//		}
 	public void selectLecturers() {
-		
 		
 		System.out.println("Please enter a course ID:");;
 		Scanner s1 = new Scanner(System.in);
@@ -247,6 +220,8 @@ public class Model_Administrator {
 	
 	public void selectView(Model_ClassDirector course) {
 		if (firstEnter) {
+			courseList.removeAll(courseList);
+			requestsList.removeAll(requestsList);
 			courseCounter = course.getCourseCounter()-1;
 			System.out.println("\n" + "There are " + courseCounter + " courses left to be selected." + "\n");
 			System.out.println("---------------------------------");
@@ -273,7 +248,7 @@ public class Model_Administrator {
 				System.out.println(courseList.get(i).getCouseID() + "\t" + courseList.get(i).getCourseName());
 			}
 			System.out.println("---------------------------------");
-			System.out.println(courseList.size());
+//			System.out.println(courseList.size());
 			
 			printOutList();
 		}
@@ -295,7 +270,7 @@ public class Model_Administrator {
 	
 
 	public void writeToFile() {
-
+		firstEnter = true;
 		BufferedWriter writer = null;
 
 		File file = new File(filePath);
@@ -340,7 +315,9 @@ public class Model_Administrator {
 		}else {
 			System.err.println("No data to be saved!" + "\n" + "Please match the courses first!");
 		}
-		
-		
 	}
+	
+	
+	
+	
 }
