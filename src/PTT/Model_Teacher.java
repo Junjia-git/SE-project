@@ -11,22 +11,17 @@ public class Model_Teacher {
 	private ArrayList<Model_TeacherAndClass> teachersAndClasses; 
 	String filePath;
 	private int lecturerIndex;
-//	private int lecturerIndex2;
 	private int courseIndex1;
 	private int courseIndex2;
 	boolean twoCourseAvailable = false;
-//	private boolean added= false;
-//	private int firstAddCounter;
 	
 	public Model_Teacher(String filePath) {
 		teacherArrayList = new ArrayList<Model_TeacherList>();
 		teachersAndClasses = new ArrayList<Model_TeacherAndClass>();
 		this.filePath = filePath;
 		lecturerIndex = 0;
-//		lecturerIndex2 = 0;
 		courseIndex1 = 0;
 		courseIndex2 = 0;
-//		firstAddCounter = 0;
 	}
 	
 
@@ -91,7 +86,6 @@ public class Model_Teacher {
 		if (course.getClassTeachingRequirements().size()>0 && teacherArrayList.size()>0) {
 			int counter = 0;
 			
-//			Model_TeacherAndClass list = new Model_TeacherAndClass();
 			for (int i = 0; i < teacherArrayList.size(); i++) {
 				
 				for (int j = 0; j < course.getClassTeachingRequirements().size(); j++) {
@@ -106,7 +100,6 @@ public class Model_Teacher {
 						}else {
 							courseIndex1 = j;
 						}
-//						firstAddCounter++;
 						addToTeachingList(course);
 					}
 					counter = 0;

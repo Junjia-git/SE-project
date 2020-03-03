@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -15,31 +13,21 @@ import java.util.Scanner;
 
 public class Model_Administrator {
 	Model_TeacherAndClass ta;
-	private static ArrayList<Model_TeacherMatch> results;
-	private static ArrayList<String> requests;
 	private ArrayList<Model_TeacherAndClass> teachersAndClassesList; 
 	private ArrayList<Model_TeacherAndClass> requestsList;
 	private ArrayList<Model_TeachingRequirement> courseList;
 	private int courseCounter;
 	String filePath;
-	private int index;
 	private boolean firstEnter;
-//	private int counter1;
-//	private int counter2;
 
 	
 	public Model_Administrator(String filePath) {
 		teachersAndClassesList = new ArrayList<Model_TeacherAndClass>();
 		requestsList = new ArrayList<Model_TeacherAndClass>();
 		ta = new Model_TeacherAndClass();
-		results=new ArrayList<Model_TeacherMatch>();
 		courseList = new ArrayList<Model_TeachingRequirement>();
-		requests = new ArrayList<>();
 		courseCounter = 0;
-		index = 0;
 		firstEnter = true;
-//		counter1 = 0;
-//		counter2 = 0;
 		this.filePath = filePath;
 	}
 	
@@ -144,29 +132,6 @@ public class Model_Administrator {
 				}
 			}
 		}
-//		try {
-//			FileReader fr = new FileReader(filePath);
-//			BufferedReader br = new BufferedReader(fr);
-//			
-//			String readData;
-//			while ((readData = br.readLine())!= null) {
-//				try {
-//					requests.add(readData);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//			br.close();
-//			fr.close();
-//			for (int i = 0; i < requests.size(); i++) {
-//				System.out.println(requests.get(i));
-//			}
-////			System.out.println(requests.toString());
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
 	}
 	
 	public void printOutList() {
@@ -199,7 +164,6 @@ public class Model_Administrator {
 					) {
 				requestsList.add(list);
 				courseCounter--;
-//				index = i;
 				
 				String classID = teachersAndClassesList.get(i).getCouseID();
 				for (int j = 0; j < courseList.size(); j++) {

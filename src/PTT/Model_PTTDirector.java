@@ -152,7 +152,6 @@ public class Model_PTTDirector {
 							+ "-------------------------------------------------------" + "\n");
 					
 					approved = true;
-//					titleResults();
 //					printOutReqList();
 					finalResults();
 					System.out.println("\n" + "Remember to save!");
@@ -164,7 +163,6 @@ public class Model_PTTDirector {
 							+ "-------------------------------------------------------" + "\n");
 					
 					approved = false;
-//					titleResults();
 //					printOutReqList();
 					finalResults();
 					System.out.println("\n" + "Remember to add comments to the Class Director and The Teacher Director");
@@ -175,41 +173,12 @@ public class Model_PTTDirector {
 					approveReqList(vu);
 				}
 			
-//			
-//			if (choice.equals("1")) {
-//				System.out.println("\n" + "-------------------------------------------------------" + "\n" 
-//									    + "---------THE TEACHING REQUIREMENTS ARE APPROVED--------" + "\n" 
-//										+ "-------------------------------------------------------" + "\n");
-//				printOutReqList();
-//				System.err.println("\n" + "Remember to save!");
-//			}
-//			if (choice.equals("2")) {
-//				System.err.println("\n" + "-------------------------------------------------------" + "\n"
-//										+ "--------THE TEACHING REQUIREMENTS ARE NOT APPROVED-----" + "\n"
-//										+ "-------------------------------------------------------" + "\n");
-//				
-//				
-//			}else {
-//				System.err.println("Undefined input! Please input again!");
-//				approveReqList();
-//			}
 			
 		}else {
 			System.err.println("No data found!");
 		}
 	}
 	
-//	public void titleResults() {
-//		if (approved) {
-//			System.out.println("\n" + "-------------------------------------------------------" + "\n" 
-//    								+ "---------THE TEACHING REQUIREMENTS ARE APPROVED--------" + "\n" 
-//    								+ "-------------------------------------------------------" + "\n");
-//		}else {
-//			System.err.println("\n" + "-------------------------------------------------------" + "\n"
-//									+ "--------THE TEACHING REQUIREMENTS ARE NOT APPROVED-----" + "\n"
-//									+ "-------------------------------------------------------" + "\n");
-//		}
-//	}
 	
 	
 	public void finalResults() {

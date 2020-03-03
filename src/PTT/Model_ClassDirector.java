@@ -27,22 +27,13 @@ public class Model_ClassDirector {
 	private boolean added = false;
 	private boolean removed = false;
 	private int removeID = 0;
-//	private ArrayList<String> addList;
-//	private ArrayList<String> removeList;
-//	private int addCounter;
-//	private int removeCounter;
 	String filePath;
 	
 	public Model_ClassDirector(String filePath) {
 		classTeachingRequirements = new ArrayList<Model_TeachingRequirement>();
 		initalList = new ArrayList<Model_TeachingRequirement>();
 		teacherInitalList = new ArrayList<Model_TeacherList>();
-//		addList = new ArrayList<String>();
-//		removeList = new ArrayList<String>();
 		this.filePath = filePath;
-//		getTeachingRequirement(filePath);
-//		addCounter = 0;
-//		removeCounter = 0;
 	}
 
 	public ArrayList<Model_TeachingRequirement> getClassTeachingRequirements() {

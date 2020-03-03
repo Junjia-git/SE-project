@@ -17,22 +17,17 @@ public class Controller {
 	private Model_Administrator ma;
 	private Model_PTTDirector mp;
 	private View_CommandLine vc;
-	private Model_TeachingRequirement mtr;
-	private Model_TeacherList mtl;
 	private View_UserSelection vu = new View_UserSelection();
 
-//	int lineNumber;
 	
 	public Controller(Model_ClassDirector mc, Model_Teacher mt, 
 			Model_Administrator ma, Model_PTTDirector mp, 
-			View_CommandLine vc, Model_TeacherList mtl, Model_TeachingRequirement mtr) {
+			View_CommandLine vc) {
 		this.mc = mc;
 		this.mt = mt;
 		this.ma = ma;
 		this.mp = mp;
 		this.vc = vc;
-		this.mtr =mtr;
-		this.mtl = mtl;
 		
 	}
 	

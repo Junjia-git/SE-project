@@ -35,7 +35,7 @@ public class ControllerTest {
 		vc = new View_CommandLine();
 		mtl = new Model_TeacherList();
 		mtr = new Model_TeachingRequirement();
-		c = new Controller(mc, mt, ma, mp, vc, mtl, mtr);
+		c = new Controller(mc, mt, ma, mp, vc);
 	}
 	
 	@Test

@@ -1,7 +1,6 @@
 package PTT;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class PTTCMLApplication {
 	public static void main(String[] args) throws IOException{
@@ -10,17 +9,11 @@ public class PTTCMLApplication {
 		Model_Teacher mt = new Model_Teacher(filePath);
 		Model_Administrator ma = new Model_Administrator(filePath);
 		Model_PTTDirector mp = new Model_PTTDirector(filePath);
-		Model_TeachingRequirement mtr = new Model_TeachingRequirement();
 		View_CommandLine vc = new View_CommandLine();
 		
-		mc.getCourseInfo();
-//		Controller controller = new Controller(mc, mt, ma, mp, vc);
-		
-//		mc.getTeachingRequirement(sourceFile);
-//		mc.classDirectorList();
-//		mc.writeNewRequirements(sourceFile);
+		Controller c = new Controller(mc, mt, ma, mp, vc);
 	
-		
+		c.startRunning(filePath);
 	}
 
 	
