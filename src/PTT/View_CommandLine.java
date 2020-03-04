@@ -92,7 +92,7 @@ public class View_CommandLine {
 		
 	}
 	
-	public void worngInput() {
+	public void wrongInput() {
 		System.err.println("\n" + "Undefined input. Please enter again!");
 	}
 	

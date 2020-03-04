@@ -52,7 +52,7 @@ public class Controller {
 			teacherDirectorManangerSystem(filePath);
 		}
 		if (userInputC == 3) {
-			adminStratorSystem(filePath);
+			adminstratorSystem(filePath);
 		}
 		if (userInputC == 4) {
 			pttDirectorSystem(filePath);
@@ -110,7 +110,7 @@ public class Controller {
 				resetTheFile(filePath);
 				System.exit(0);
 			default:
-				vc.worngInput();
+				vc.wrongInput();
 				classDirectorManagerSystem(filePath);
 			}
 		}
@@ -142,7 +142,7 @@ public class Controller {
 				resetTheFile(filePath);
 				System.exit(0);
 			default:
-				vc.worngInput();
+				vc.wrongInput();
 				teacherDirectorManangerSystem(filePath);
 			}
 		}
@@ -150,7 +150,7 @@ public class Controller {
 	
 	
 	
-	public void adminStratorSystem(String filePath) throws IOException{
+	public void adminstratorSystem(String filePath) throws IOException{
 		ma.readTeachingRequests();
 		while(true) {
 			vc.administratorManager();
@@ -176,8 +176,8 @@ public class Controller {
 				resetTheFile(filePath);
 				System.exit(0);
 			default:
-				vc.worngInput();
-				adminStratorSystem(filePath);
+				vc.wrongInput();
+				adminstratorSystem(filePath);
 			}
 		}
 	}
@@ -224,8 +224,8 @@ public class Controller {
 				resetTheFile(filePath);
 				System.exit(0);
 			default:
-				vc.worngInput();
-				adminStratorSystem(filePath);
+				vc.wrongInput();
+				pttDirectorSystem(filePath);
 			}
 		}
 	}
