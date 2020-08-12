@@ -9,11 +9,11 @@ import java.util.ArrayList;
 public class Model_Teacher {
 	private ArrayList<Model_TeacherList> teacherArrayList;
 	private ArrayList<Model_TeacherAndClass> teachersAndClasses; 
-	String filePath;
+	private String filePath;
 	private int lecturerIndex;
 	private int courseIndex1;
 	private int courseIndex2;
-	boolean twoCourseAvailable = false;
+	private boolean twoCourseAvailable = false;
 	
 	public Model_Teacher(String filePath) {
 		teacherArrayList = new ArrayList<Model_TeacherList>();
@@ -23,16 +23,6 @@ public class Model_Teacher {
 		courseIndex1 = 0;
 		courseIndex2 = 0;
 	}
-	
-
-	public String getFilePath() {
-		return filePath;
-	}
-
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-	
 	
 	
 	public ArrayList<Model_TeacherList> getTeacherArrayList() {

@@ -27,7 +27,7 @@ public class Model_ClassDirector {
 	private boolean added = false;
 	private boolean removed = false;
 	private int removeID = 0;
-	String filePath;
+	private String filePath;
 	
 	public Model_ClassDirector(String filePath) {
 		classTeachingRequirements = new ArrayList<Model_TeachingRequirement>();

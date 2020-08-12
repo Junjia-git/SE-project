@@ -1,10 +1,7 @@
 package PTT;
 
-//import java.util.LinkedHashMap;
 
 public class Model_TeachingRequirement {
-//	private LinkedHashMap<String, String> teachingRequirment = new LinkedHashMap<String, String>();
-//	private String course;
 	private String couseID;
 	private String courseName;
 	private String courseTeacherReq;
@@ -43,50 +40,6 @@ public class Model_TeachingRequirement {
 		this.courseLocation = courseLocation;
 	}
 	
-	
-	
-//	public String getCourse() {
-//		return course;
-//	}
-//
-//	public void setCourse(String course) {
-//		this.course = course;
-//	}
-
-//	public LinkedHashMap<String, String> getTeachingRequirment() {
-//		return teachingRequirment;
-//	}
-//	
-//	public void setTeachingRequirement(String key, String value) {
-//		this.teachingRequirment.put(key, value);
-//	}
-//	
-	
-	
-//	@Override
-//	public String toString() {
-//		String print = "";
-//		
-//		for (String key : teachingRequirment.keySet()) {
-//			String value = teachingRequirment.get(key);
-//			print += "> " + key + ": " + value + "\n";
-//		}
-//		return print;
-//	}
-//	
-//	
-//	
-//	public String teachingRequirementDetails() {
-//		String printDetails = "";
-//		printDetails += this.course;
-//		
-//		for (String key : teachingRequirment.keySet()) {
-//			String value = teachingRequirment.get(key);
-//			printDetails += "," + value;
-//		}
-//		return printDetails;
-//	}
-
 }	
 
 

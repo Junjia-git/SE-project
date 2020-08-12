@@ -17,7 +17,7 @@ public class Model_Administrator {
 	private ArrayList<Model_TeacherAndClass> requestsList;
 	private ArrayList<Model_TeachingRequirement> courseList;
 	private int courseCounter;
-	String filePath;
+	private String filePath;
 	private boolean firstEnter;
 
 	

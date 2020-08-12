@@ -15,7 +15,7 @@ public class View_CommandLine {
 		System.out.println("----------------------------------");	
 		System.out.println("**Teaching and Employment System**");
 		System.out.println("----------------------------------");
-		System.out.println("Welecome! Please login first.");
+		System.out.println("Wlecome! Please login first.");
 	}
 	
 	public void userLogIn() {

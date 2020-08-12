@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Model_PTTDirector {
 	private ArrayList<String> results;
 	private ArrayList<Model_TeacherAndClass> reqList;
-	String filePath;
+	private String filePath;
 	private boolean approved;
 	private boolean oneRoundOver;
 	

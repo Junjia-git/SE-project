@@ -15,7 +15,7 @@ import PTT.Model_TeachingRequirement;
 import PTT.View_CommandLine;
 import PTT.View_UserSelection;
 
-public class ControllerTest {
+public class PTTTest {
 	Model_ClassDirector mc;
 	Model_Teacher mt;
 	Model_Administrator ma;
@@ -25,9 +25,10 @@ public class ControllerTest {
 	Controller c;
 	Model_TeacherList mtl;
 	Model_TeachingRequirement mtr;
-	String filePath = "/Users/guodongyang/eclipse-workspace/SE_AssessedExercise/Teaching Requests.txt";
-	
-	public ControllerTest() {
+//	String filePath = "/Users/guodongyang/eclipse-workspace/SE_AssessedExercise/Teaching Requests.txt";
+	String filePath="./Teaching Requests.txt";
+
+	public PTTTest() {
 		mc = new Model_ClassDirector(filePath);
 		mt = new Model_Teacher(filePath);
 		ma = new Model_Administrator(filePath);
